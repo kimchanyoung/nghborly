@@ -19,6 +19,19 @@ class RequestsController < ApplicationController
     end
   end
 
+  def show
+    @request = Request.find_by(params[:id])
+  end
+
+  def update
+
+  end
+
+  def destroy
+    request = Request.find_by(params[:id])
+    redirect_to root
+  end
+
   private
 
   def request_attributes
