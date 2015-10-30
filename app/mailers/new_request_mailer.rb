@@ -1,9 +1,8 @@
 class NewRequestMailer < BaseMandrillMailer
-  def notify(request, user_id)
-    user = User.find(user_id)
+  def notify(request, user)
     subject = "#{request.requester.first_name} needs a neighbor!"
-    merge_cars = {
-
+    merge_vars = {
+      ""
     }
     body = mandrill_template('new_request', merge_vars)
 
