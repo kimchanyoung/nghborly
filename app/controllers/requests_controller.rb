@@ -21,17 +21,17 @@ class RequestsController < ApplicationController
   end
 
   def show
-    @request = Request.find_by(params[:id])
+    @request = Request.find_by(id: params[:id])
   end
 
   def update
-    request = Request.find_by(params[:id])
+    request = Request.find_by(id: params[:id])
     request.responder = current_user if request.requester != current_user
     redirect_to request(@request)
   end
 
   def destroy
-    request = Request.find_by(params[:id])
+    request = Request.find_by(id: params[:id])
     request.destroy if request.requester == current user
     redirect_to root
   end
