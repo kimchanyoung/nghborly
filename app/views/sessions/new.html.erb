@@ -1,12 +1,12 @@
 <script src="https://cdn.auth0.com/js/lock-7.9.min.js"></script>
 <script type="text/javascript">
   
-  var lock = new Auth0Lock('2M7P0OrlDnifR6x8NfkNr3VQsdKsqaMC', 'nghborly.auth0.com');
-  
+  var lock = new Auth0Lock('WuwkvmO3lwnNQO0u7LMQrhYkiKlTjLGW', 'nghborly.auth0.com');
+  var url = (document.location.origin + "/auth/auth0/callback")
   
   function signin() {
     lock.show({
-        callbackURL: 'http://nghborly.auth0.com/auth/auth0/callback'
+        callbackURL: url
       , responseType: 'code'
       , authParams: {
         scope: 'openid profile'
@@ -15,3 +15,4 @@
   }
 </script>
 <button onclick="window.signin();">Login</button>
+
