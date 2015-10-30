@@ -1,4 +1,9 @@
 <div class = 'request'>
   <%= @request.requester.first_name %> said: <%= @request.content %>
   At <%= @request.created_at %>
+  <% if @request.requester == current_user %>
+    <%= button_to "Cancel Request", request, class: button, method: 'delete' %>
+  <% else %>
+    <%= button_to 'Be a neighbor!', request, class: button, method: 'patch' %>
+  <% end %>
 </div>
