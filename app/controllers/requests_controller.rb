@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
     if @request.save
       redirect_to request(@request)
     else
-      flash.new[:alert] = @request.errors.full_messages.join(", ")
+      flash.now[:alert] = @request.errors.full_messages.join(", ")
       render 'new'
     end
   end
