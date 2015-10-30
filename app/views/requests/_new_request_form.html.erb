@@ -1,0 +1,6 @@
+<%= form_for request do |f| %>
+  <%= f.label :content, 'Your request: ' %>
+  <%= f.text_field :content %>
+
+  <%= f.submit 'Ping neighbors!' %>
+<% end %>

@@ -1,0 +1,5 @@
+<% if flash[:alert] %>
+  <div><%= flash[:notice] %></div>
+<% end %>
+<%= render 'new_request_form', request: @request %>
+
