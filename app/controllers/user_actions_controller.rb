@@ -6,7 +6,6 @@ class UserActionsController < ApplicationController
 
   def logged_in?
     unless current_user
-      # Redirect to page that has the login here
       redirect_to login_path
     end
   end
