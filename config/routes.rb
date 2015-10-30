@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get "/auth/failure" => "auth0#failure"
 
   post "/groups/assign", to: "groups#assign"
+
 end
