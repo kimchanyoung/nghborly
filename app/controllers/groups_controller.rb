@@ -1,10 +1,9 @@
 class GroupsController < ApplicationController
   def assign
     user = current_user
-
-    group_id = find_group(params[:address])
-
-    user.group_id = group_id
+    user.group_id = find_group(params[:address])
+    user.save
+    redirect_to root_path
   end
 
   private
