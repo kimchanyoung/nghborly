@@ -4,9 +4,12 @@ class Auth0Controller < ApplicationController
 =======
 >>>>>>> Add the shell for the code that will hand the success and failure of the callback
 def callback
-    # This stores all the user information that came from Auth0
-    # and the IdP
-    session[:userinfo] = request.env['omniauth.auth']
+    user = User.find_or_create_by(uid: request.env['omniauth.auth']['userinfo'])
+
+    user.name = request.env['omniauth.auth']['info']['name']
+    user.save
+    
+    session[:userinfo] = user.userinfo
 
     # Redirect to the URL you want after successfull auth
     redirect_to '/dashboard'
