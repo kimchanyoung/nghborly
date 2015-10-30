@@ -25,7 +25,9 @@ class RequestsController < ApplicationController
   end
 
   def update
-
+    request = Request.find_by(params[:id])
+    request.responder = current_user if request.requester != current_user
+    redirect_to request(@request)
   end
 
   def destroy
