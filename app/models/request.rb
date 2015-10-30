@@ -3,6 +3,6 @@ class Request < ActiveRecord::Base
   belongs_to :responder, class_name: 'User'
 
   validates :content, presence: true
-  validates :requester
+  validates :requester, presence: true
   validates :isFulfilled, presence: true
 end

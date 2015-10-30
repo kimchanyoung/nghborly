@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :username, :avatar, :uid, presence: true
   validates :uid, uniqueness: true
-  validates :group
+  validates :group, presence: true
 end
