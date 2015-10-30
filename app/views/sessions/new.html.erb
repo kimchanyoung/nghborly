@@ -1,0 +1,15 @@
+<script src="https://cdn.auth0.com/js/lock-7.9.min.js"></script>
+<script>
+  
+  var lock = new Auth0Lock('mV3LbBNO393VYjWHySzgONZT2t7kjqDh', 'nghborly.auth0.com');
+  var url = (document.location.origin + "/auth/auth0/callback")
+  
+  lock.show({
+      container: 'root'
+    , callbackURL: url
+    , responseType: 'code'
+    , authParams: {
+      scope: 'openid profile'
+    }
+  });
+</script>
