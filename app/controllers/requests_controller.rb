@@ -12,9 +12,10 @@ class RequestsController < ApplicationController
     @request = Request.new(request_attributes)
     @request.requester = current_user
     if @request.save
-
+      redirect_to request(@request)
     else
-
+      @errors = @request.errors.full_messages
+      render 'new'
     end
   end
 
