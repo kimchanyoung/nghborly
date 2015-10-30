@@ -11,13 +11,11 @@ def callback
     
     session[:userinfo] = user.userinfo
 
-    # Redirect to the URL you want after successfull auth
     redirect_to '/dashboard'
 <<<<<<< HEAD
   end
 
   def failure
-    # show a failure page or redirect to an error page
     @error_msg = request.params['message']
 =======
   def callback
