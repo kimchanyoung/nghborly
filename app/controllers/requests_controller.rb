@@ -13,6 +13,9 @@ class RequestsController < ApplicationController
     @request = Request.new(request_attributes)
     @request.requester = current_user
     if @request.save
+      current_user.group.users.each do |user|
+        NewRequestMailer.notify(@request, user)
+      end
       redirect_to request(@request)
     else
       flash[:alert] = @request.errors.full_messages.join(", ")
