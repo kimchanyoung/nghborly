@@ -1,5 +1,5 @@
 <% if flash[:alert] %>
   <div><%= flash[:notice] %></div>
 <% end %>
-<%= render '_new_request_form.html.erb', request: @request %>
+<%= render 'new_request_form', request: @request %>
 
