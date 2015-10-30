@@ -6,4 +6,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     'nghborly.auth0.com',
     callback_path: "/auth/auth0/callback"
     )
+
 end 
