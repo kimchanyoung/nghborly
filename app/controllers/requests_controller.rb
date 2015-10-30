@@ -27,6 +27,7 @@ class RequestsController < ApplicationController
   def update
     request = Request.find_by(id: params[:id])
     request.responder = current_user if request.requester != current_user
+    flash[:success] = "Thanks for being a good neighbor!"
     redirect_to request(@request)
   end
 
