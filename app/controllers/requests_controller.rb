@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
     if @request.save
       redirect_to request(@request)
     else
-      flash.now[:alert] = @request.errors.full_messages.join(", ")
+      flash[:alert] = @request.errors.full_messages.join(", ")
       render 'new'
     end
   end
@@ -32,7 +32,12 @@ class RequestsController < ApplicationController
 
   def destroy
     request = Request.find_by(id: params[:id])
-    request.destroy if request.requester == current user
+    if request.requester == current_user
+      request.destroy
+      flash[:success] = 'Request successfully cancelled!'
+    else
+      flash[:error] = "You cannot cancel someone else's request!"
+    end
     redirect_to root_path
   end
 
