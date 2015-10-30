@@ -24,6 +24,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#Use auth0 for user authentication 
+gem 'omniauth', '~> 1.2'
+gem 'omniauth-auth0', '~> 1.1'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
