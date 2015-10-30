@@ -32,6 +32,7 @@ class RequestsController < ApplicationController
 
   def destroy
     request = Request.find_by(params[:id])
+    request.destroy if request.requester == current user
     redirect_to root
   end
 
