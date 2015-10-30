@@ -8,4 +8,7 @@ Rails.application.routes.draw do
 
   post "/groups/assign", to: "groups#assign"
 
+  get '/chatpage', to: 'chats#new'
+  post '/chats/auth', to: 'chats#auth'
+  post '/chats/post', to: 'chats#create'
 end
