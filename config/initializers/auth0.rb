@@ -1,5 +1,4 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  
   provider(
     :auth0,
     ENV['AUTH0_CLIENT'],
