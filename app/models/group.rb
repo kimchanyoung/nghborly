@@ -1,3 +1,5 @@
 class Group < ActiveRecord::Base
-  validates :name, :address, presence: true
+  has_many :users
+
+  validates :name, :address, presence: true, uniqueness: true
 end
