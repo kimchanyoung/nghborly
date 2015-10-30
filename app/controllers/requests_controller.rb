@@ -1,4 +1,6 @@
 class RequestsController < ApplicationController
+  before_action :require_login
+
   def index
     @requests = Request.all
   end
@@ -8,7 +10,6 @@ class RequestsController < ApplicationController
   end
 
   def create
-    redirect_to new_request and return unless logged_in?
     @request = Request.new(request_attributes)
     @request.requester = current_user
     if @request.save
@@ -36,6 +37,13 @@ class RequestsController < ApplicationController
 
   def request_attributes
     params.require(:request).permit(:content)
+  end
+
+  def require_login
+    unless logged_in?
+      flash[:error] = 'Please log in to be a good neighbor!'
+      redirect_to login_path
+    end
   end
 
 end
