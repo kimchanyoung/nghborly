@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
 
     if @message.save
       trigger_message_event(@message)
+      redirect_to request_messages_path(@request)
     else
       flash[:now] = @message.errors.full_messages.join(', ')
       render request_messages_path(@request)
@@ -20,7 +21,7 @@ class MessagesController < ApplicationController
   private
 
  def set_request
-  @request = Request.find_by(id: params[:request_id]).messages.include(:messages)
+  @request = Request.find_by(id: params[:request_id])
  end
 
   def require_login
@@ -44,7 +45,7 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-    known_attrs = {author_id: current_user.id, request_id: @request.id}
+    known_attrs = {sender_id: current_user.id, request_id: @request.id}
 
     params.require(:message).permit(:content).merge(known_attrs)
   end
