@@ -28,8 +28,14 @@ class RequestsController < UserActionsController
   def update
     request = Request.find_by(id: params[:id])
     request.responder = current_user if request.requester != current_user
-    flash[:success] = "Thanks for being a good neighbor!"
-    redirect_to request_path(@request)
+
+    if request.save
+      flash[:success] = "Thanks for being a good neighbor!"
+      redirect_to request_path(request)
+    else
+      flash[:error] = request.errors.full_messages.join(', ')
+      redirect_to "show"
+    end
   end
 
   def destroy
