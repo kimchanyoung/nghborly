@@ -29,7 +29,7 @@ class RequestsController < UserActionsController
     request = Request.find_by(id: params[:id])
     request.responder = current_user if request.requester != current_user
     flash[:success] = "Thanks for being a good neighbor!"
-    redirect_to request(@request)
+    redirect_to request_path(@request)
   end
 
   def destroy
