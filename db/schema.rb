@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031123831) do
+ActiveRecord::Schema.define(version: 20151031184023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20151031123831) do
   create_table "messages", force: :cascade do |t|
     t.integer "request_id",             null: false
     t.string  "content",    limit: 140, null: false
-    t.integer "sender",                 null: false
+    t.integer "sender_id",              null: false
   end
 
   create_table "requests", force: :cascade do |t|
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 20151031123831) do
     t.boolean  "is_fulfilled", default: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "request_id",       null: false
+    t.string   "transaction_type", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "users", force: :cascade do |t|
