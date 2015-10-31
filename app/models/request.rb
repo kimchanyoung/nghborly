@@ -10,6 +10,7 @@ class Request < ActiveRecord::Base
 
   private
   def defaultly_unfulfilled
-    self.is_fulfilled ||= false
+    self.is_fulfilled = false
+    true
   end
 end
