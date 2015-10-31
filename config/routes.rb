@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   get '/chatpage', to: 'chats#new'
   post '/chats/auth', to: 'chats#auth'
   post '/chats/post', to: 'chats#create'
+  resources :requests do
+    resources :messages
+  end
+
+  post 'pusher/auth', to: 'pusher#auth'
 end
