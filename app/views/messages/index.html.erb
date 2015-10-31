@@ -14,7 +14,7 @@
 
   var channel = pusher.subscribe('private-123');
 
-  channel.bind('new_message_posted', function(data) {
+  channel.bind('new_message', function(data) {
     $('#messages').append('<li>' + data.message + '</li>');
   });
 
