@@ -41,8 +41,8 @@ class RequestsController < UserActionsController
     else
       @request.update_attribute(:is_fulfilled, true)
       Transaction.create(request_id: @request.id, transaction_type: 'fulfillment')
+      redirect_to request_path(@request)
     end
-    redirect_to request_path(@request)
   end
 
   def destroy
