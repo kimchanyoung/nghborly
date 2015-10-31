@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :group
-  has_many :requests, as: :requester
-  has_many :requests, as: :responder
+  has_many :made_requests, class_name: 'Request', foreign_key: 'requester_id'
+  has_many :fulfilled_requests, class_name: 'Request', foreign_key: 'responder_id'
   has_many :votes, as: :voter
   has_many :votes, as: :candidate
 
