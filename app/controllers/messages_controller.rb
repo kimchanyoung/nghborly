@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @request.messages
+    @message = Message.new
   end
 
   def create
