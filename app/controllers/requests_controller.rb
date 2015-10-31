@@ -14,7 +14,7 @@ class RequestsController < ApplicationController
     @request.requester = current_user
     if @request.save
       current_user.group.users.each do |user|
-        NewRequestMailer.notify(@request, user)
+        NewRequestMailer.notify(@request, user).deliver_now
       end
       redirect_to request(@request)
     else
