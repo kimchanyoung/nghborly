@@ -63,6 +63,7 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.3)
+    httpclient (2.6.0.1)
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -107,6 +108,11 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    pusher (0.14.6)
+      httpclient (~> 2.5)
+      multi_json (~> 1.0)
+      pusher-signature (~> 0.1.8)
+    pusher-signature (0.1.8)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -212,6 +218,7 @@ DEPENDENCIES
   omniauth-auth0 (~> 1.1)
   pg
   pry-rails
+  pusher
   rails (= 4.2.4)
   rails_12factor
   rspec-rails
