@@ -1,4 +1,4 @@
-class RequestEventsController < UserActionsController
+class TransactionsController < UserActionsController
   def active
     @transactions = Transaction.sort_by_active
     render 'transactions/index.html.erb'
