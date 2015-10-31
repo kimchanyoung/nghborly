@@ -2,9 +2,9 @@
   <%= request.requester.first_name %> said: <%= request.content %>
   At <%= request.created_at %>
   <% if request.requester == current_user %>
-    <%= button_to "Cancel Request", request, class: button, method: 'delete' %>
+    <%= button_to "Cancel Request", request, class: 'button', method: 'delete' %>
   <% elsif @request.responder == nil %>
-    <%= button_to 'Be a neighbor!', request, class: button, method: 'patch' %>
+    <%= button_to 'Be a neighbor!', request, class: 'button', method: 'patch' %>
   <% else %>
   <p> Someone is already being a neighbor to <%= request.requester.first_name %>. Thanks for checking!
     <%= button_to 'Return to Home', root_path %>
