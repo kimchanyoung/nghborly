@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name, null: false
       t.string :email, null: false 
       t.integer :group_id
+      t.integer :vote_count, default: 0
 
       t.timestamps null: false
     end
