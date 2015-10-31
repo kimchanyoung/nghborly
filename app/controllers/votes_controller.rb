@@ -1,7 +1,4 @@
-class VotesController < ApplicationController
-
+class VotesController < UserActionsController
     def create
-    
-    end 
-
-end 
+    end
+end

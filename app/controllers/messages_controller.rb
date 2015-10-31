@@ -1,4 +1,4 @@
-class MessagesController < ApplicationController
+class MessagesController < UserActionsController
   before_action :set_request, :require_login, :verify_association
   before_action :validate_request_status, only: [:create]
 

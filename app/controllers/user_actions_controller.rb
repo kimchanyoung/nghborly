@@ -1,5 +1,5 @@
 class UserActionsController < ApplicationController
-
+  before_action :assigned_to_group
   before_action :logged_in?, only: [:new, :create]
 
   private
@@ -10,4 +10,9 @@ class UserActionsController < ApplicationController
     end
   end
 
+  def assigned_to_group
+    if current_user.group.nil?
+      redirect_to groups_assign
+    end
+  end
 end

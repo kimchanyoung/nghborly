@@ -1,4 +1,4 @@
-class RequestsController < ApplicationController
+class RequestsController < UserActionsController
   before_action :require_login
 
   def index
