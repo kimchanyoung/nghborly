@@ -6,7 +6,7 @@ class Request < ActiveRecord::Base
 
   validates :content, presence: true
   validates :requester, presence: true
-  validates :isFulfilled, presence: true
+  validates :is_fulfilled, presence: true
 
   private
   def defaultly_unfulfilled
