@@ -14,7 +14,7 @@ class RequestsController < UserActionsController
       current_user.group.users.each do |user|
         NewRequestMailer.notify(@request, user).deliver_now
       end
-      redirect_to request(@request)
+      redirect_to request_path(@request)
     else
       flash[:alert] = @request.errors.full_messages.join(", ")
       render 'new'
