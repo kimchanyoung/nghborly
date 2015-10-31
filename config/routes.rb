@@ -19,5 +19,6 @@ Rails.application.routes.draw do
 
   resources :requests do
     resources :messages
+    resources :votes, only: [:create]
   end
 end
