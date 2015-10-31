@@ -1,4 +1,7 @@
 class GroupsController < ApplicationController
+  def inquire
+  end
+
   def assign
     user = current_user
     user.group_id = find_group(params[:address])
