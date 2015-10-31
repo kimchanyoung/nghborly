@@ -11,25 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029212113) do
+ActiveRecord::Schema.define(version: 20151029211509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "groups", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "address",    null: false
+    t.string   "number",     null: false
+    t.string   "street",     null: false
+    t.string   "city",       null: false
+    t.string   "zip_code",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "groups", ["address"], name: "index_groups_on_address", unique: true, using: :btree
 
   create_table "requests", force: :cascade do |t|
     t.string   "content",                      null: false
     t.integer  "requester_id",                 null: false
     t.integer  "responder_id"
-    t.boolean  "isFulfilled",  default: false, null: false
+    t.boolean  "is_fulfilled", default: false, null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
