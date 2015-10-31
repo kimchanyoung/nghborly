@@ -1,0 +1,36 @@
+<div id="status">
+</div>
+
+<div id="chat-window">
+  <ul id="messages">
+  </ul>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  var pusher = new Pusher('545220afdca7480dd648',
+      {encrypted: true});
+
+ //note that 123456 below needs to be replaced with the requestid
+
+  var channel = pusher.subscribe('private-123');
+
+  channel.bind('new_message_posted', function(data) {
+    $('#messages').append('<li>' + data.message + '</li>');
+  });
+
+  pusher.connection.bind('connecting', function() {
+    $('div#status').text("Connecting to chat system...");
+  });
+
+  pusher.connection.bind('connected', function() {
+    $('div#status').text("Connected to chat system!");
+  });
+
+  // NOTE: We should act functionality so that the div#status div slowly changes
+  // and is removed after a period of time (3 seconds?);
+
+  // NOTE: More more user-friendly message should appear here.
+  channel.bind('subscription_error', function() {
+    $('div#status').text("Not authorized to subscribe to channel.");
+  });
+</script>
