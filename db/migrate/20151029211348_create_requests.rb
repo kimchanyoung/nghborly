@@ -4,7 +4,7 @@ class CreateRequests < ActiveRecord::Migration
       t.string :content, null: false
       t.integer :requester_id, null: false
       t.integer :responder_id
-      t.boolean :is_fulfilled, null: false, default: false
+      t.boolean :is_fulfilled, default: false
 
       t.timestamps null: false
     end

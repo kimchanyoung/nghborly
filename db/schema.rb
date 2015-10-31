@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20151029211509) do
     t.string   "content",                      null: false
     t.integer  "requester_id",                 null: false
     t.integer  "responder_id"
-    t.boolean  "is_fulfilled", default: false, null: false
+    t.boolean  "is_fulfilled", default: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
