@@ -10,7 +10,7 @@ class Auth0Controller < ApplicationController
 
     session[:user_id] = user.user_id
 
-    redirect_to '/'
+    redirect_to root_path
   end
 
   def failure

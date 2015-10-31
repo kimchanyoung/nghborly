@@ -12,7 +12,7 @@ class UserActionsController < ApplicationController
 
   def assigned_to_group
     if current_user.group.nil?
-      redirect_to groups_assign
+      redirect_to groups_assign_path
     end
   end
 end

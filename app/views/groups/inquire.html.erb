@@ -1,0 +1,28 @@
+<h2>Find your Neighbors!</h2>
+
+<p>We need to know where you live so we can connect you to <strong>your</strong> neighbors.</p>
+
+<%= form_tag do %>
+
+  <div class="field">
+    <%= label_tag :number, "Building Number" %>
+    <%= text_field_tag :number %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :street, "Street" %>
+    <%= text_field_tag :street %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :city, "city" %>
+    <%= text_field_tag :city %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :zip_code, "Zip Code" %>
+    <%= text_field_tag :zip_code %>
+  </div>
+
+  <%= submit_tag "Find Your Neighbors!" %>
+<% end %>
