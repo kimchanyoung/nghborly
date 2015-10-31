@@ -8,7 +8,7 @@ class Transaction < ActiveRecord::Base
   end
 
   def self.sort_by_user(user)
-    Transaction.joins(:request).where(requests: {requester_id: user_id})
+    Transaction.joins(:request).where(requests: {requester_id: user.id})
   end
 
   def self.sort_by_active
