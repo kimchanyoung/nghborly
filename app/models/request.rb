@@ -2,7 +2,7 @@ class Request < ActiveRecord::Base
   before_create :defaultly_unfulfilled
 
   has_many :messages
-  has_many :events
+  has_many :transactions
 
   belongs_to :requester, class_name: 'User'
   belongs_to :responder, class_name: 'User'
