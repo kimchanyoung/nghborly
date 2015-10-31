@@ -1,5 +1,5 @@
 class Auth0Controller < ApplicationController
-def callback
+  def callback
 
     user = User.find_or_create_by(user_id: request.env['omniauth.auth']['user_id'])
 
@@ -8,7 +8,7 @@ def callback
     user.email = request.env['omniauth.auth']['info']['email']
     user.save
 
-    session[:user_id] = user.user_id 
+    session[:user_id] = user.user_id
 
     redirect_to '/'
   end
