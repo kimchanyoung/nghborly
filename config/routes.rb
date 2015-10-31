@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
   post 'pusher/auth', to: 'pusher#auth'
 
-  get '/active', :to => 'events#active', :as => :active
-  get '/river', :to => 'events#river', :as => :river
-  get '/history', :to => 'events#history', :as => :history
+  get '/active', :to => 'transactions#active', :as => :active
+  get '/river', :to => 'transactions#river', :as => :river
+  get '/history', :to => 'transactions#history', :as => :history
 
   resources :requests do
     resources :messages
