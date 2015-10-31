@@ -10,12 +10,18 @@
 </div>
 
 <div id="message-input">
-  <form action="/requests/1/messages" method="post">
-    <div>
-      <label for="message">Message: </label>
-      <input type="text" name="message[content]" id="message">
+  <%= form_for [@request, @message] do |f| %>
+
+    <div class="field">
+      <%= f.label :content %>
+      <%= f.text_field :content %>
     </div>
-  </form>
+
+    <div class="actions">
+      <%= f.submit "Message Neighbor"%>
+    </div>
+
+  <% end %>
 </div>
 
 <script type="text/javascript" charset="utf-8">
