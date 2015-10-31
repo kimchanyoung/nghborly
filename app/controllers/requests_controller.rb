@@ -11,6 +11,7 @@ class RequestsController < UserActionsController
     @request = Request.new(request_attributes)
     @request.requester = current_user
     if @request.save
+      Transaction.create(request_id: @request.id, transaction_type: 'request')
       current_user.group.users.each do |user|
         NewRequestMailer.notify(@request, user).deliver_now
       end
@@ -30,6 +31,7 @@ class RequestsController < UserActionsController
     if !@request.is_fulfilled
       @request.responder = current_user if @request.requester != current_user
       if @request.save
+        Transaction.create(request_id: @request.id, transaction_type: 'response')
         flash[:success] = "Thanks for being a good neighbor!"
         redirect_to request_path(@request)
       else
@@ -38,6 +40,7 @@ class RequestsController < UserActionsController
       end
     else
       @request.update_attribute(:is_fulfilled, true)
+      Transaction.create(request_id: @request.id, transaction_type: 'fulfillment')
     end
     redirect_to request_path(@request)
   end
