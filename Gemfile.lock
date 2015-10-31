@@ -79,10 +79,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    method_source (0.8.2)
     mandrill-api (1.0.53)
       excon (>= 0.16.0, < 1.0)
       json (>= 1.7.7, < 2.0)
+    method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile (0.6.2)
     minitest (5.8.2)
@@ -218,9 +218,9 @@ DEPENDENCIES
   factory_girl_rails
   jbuilder (~> 2.0)
   jquery-rails
+  mandrill-api
   omniauth (~> 1.2)
   omniauth-auth0 (~> 1.1)
-  mandrill-api
   pg
   pry-rails
   pusher
