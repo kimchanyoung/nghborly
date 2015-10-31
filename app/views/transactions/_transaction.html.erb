@@ -1,7 +1,7 @@
 <% if transaction.type == 'request' %>
-  <%= link_to transaction.requester.first_name, user_path(transaction.requester) %> has made a request.
+  <%#= link_to transaction.requester.first_name, user_path(transaction.requester) %> has made a request.
 <% elsif transaction.type == 'response' %>
-  <%= link_to transaction.responder.first_name, user_path(transaction.responder) %> has responded to <%= link_to transaction.requester.first_name, user_path(transaction.requester) %>'s request!
+  <%#= link_to transaction.responder.first_name, user_path(transaction.responder) %> has responded to <%#= link_to transaction.requester.first_name, user_path(transaction.requester) %>'s request!
 <% elsif transaction.type == 'fulfillment' %>
-  <%= link_to transaction.responder.first_name, user_path(transaction.responder) %> has fulfilled <%= link_to transaction.requester.first_name, user_path(transaction.requester) %>'s request!
+  <%#= link_to transaction.responder.first_name, user_path(transaction.responder) %> has fulfilled <%#= link_to transaction.requester.first_name, user_path(transaction.requester) %>'s request!
 <% end %>
