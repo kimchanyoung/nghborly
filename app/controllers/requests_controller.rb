@@ -26,20 +26,20 @@ class RequestsController < UserActionsController
   end
 
   def update
-    request = Request.find_by(id: params[:id])
-    if !request.is_fulfilled
-      request.responder = current_user if request.requester != current_user
-      if request.save
+    @request = Request.find_by(id: params[:id])
+    if !@request.is_fulfilled
+      @request.responder = current_user if @request.requester != current_user
+      if @request.save
         flash[:success] = "Thanks for being a good neighbor!"
-        redirect_to request_path(request)
+        redirect_to request_path(@request)
       else
-        flash[:error] = request.errors.full_messages.join(', ')
+        flash[:error] = @request.errors.full_messages.join(', ')
         redirect_to "show"
       end
     else
-      request.update_attribute(:is_fulfilled, true)
+      @request.update_attribute(:is_fulfilled, true)
     end
-    redirect_to request(@request)
+    redirect_to request_path(@request)
   end
 
   def destroy
