@@ -6,9 +6,7 @@ class Auth0Controller < ApplicationController
     user.first_name = request.env['omniauth.auth']['info']['last_name']
     user.last_name = request.env['omniauth.auth']['info']['first_name']
     user.email = request.env['omniauth.auth']['info']['email']
-
-    binding.pry
-    user.save!
+    user.save
 
     session[:user_id] = user.user_id
 
