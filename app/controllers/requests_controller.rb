@@ -27,15 +27,19 @@ class RequestsController < UserActionsController
 
   def update
     request = Request.find_by(id: params[:id])
-    request.responder = current_user if request.requester != current_user
-
-    if request.save
-      flash[:success] = "Thanks for being a good neighbor!"
-      redirect_to request_path(request)
+    if !request.is_fulfilled
+      request.responder = current_user if request.requester != current_user
+      if request.save
+        flash[:success] = "Thanks for being a good neighbor!"
+        redirect_to request_path(request)
+      else
+        flash[:error] = request.errors.full_messages.join(', ')
+        redirect_to "show"
+      end
     else
-      flash[:error] = request.errors.full_messages.join(', ')
-      redirect_to "show"
+      request.update_attribute(:is_fulfilled, true)
     end
+    redirect_to request(@request)
   end
 
   def destroy
@@ -47,6 +51,18 @@ class RequestsController < UserActionsController
       flash[:error] = "You cannot cancel someone else's request!"
     end
     redirect_to root_path
+  end
+
+  def active
+
+  end
+
+  def river
+
+  end
+
+  def history
+
   end
 
   private
