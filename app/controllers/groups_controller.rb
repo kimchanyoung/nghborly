@@ -2,8 +2,12 @@ class GroupsController < ApplicationController
   def assign
     user = current_user
     user.group_id = find_group(params[:address])
-    user.save
-    redirect_to root_path
+
+    if user.save
+      redirect_to root_path
+    else
+      redirect :back
+    end
   end
 
   private
