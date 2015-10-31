@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
   private
 
   def find_group(address_hash)
-    Group.where(address_hash).pluck(id)
+    Group.find_by(address_hash).id
   end
 
 end
