@@ -8,7 +8,7 @@ class VotesController < ApplicationController
             redirect_to user_path(current_user)
         else
             flash[:now] = "Your vote has failed"
-         end
+        end
     end
 
     private 
