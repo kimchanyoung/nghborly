@@ -52,7 +52,7 @@ class RequestsController < UserActionsController
           Transaction.create(request_id: @request.id, transaction_type: 'fulfillment')
           redirect_to request_path(@request)
         else
-          redirect_to "show"
+          redirect_to requests_path
         end
       else
         flash[:error] = "You are not a party in this transaction!"
