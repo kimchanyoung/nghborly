@@ -9,20 +9,22 @@
   </ul>
 </div>
 
-<div id="message-input">
-  <%= form_for [@request, @message] do |f| %>
+<% if @request.active? %>
+  <div id="message-input">
+    <%= form_for [@request, @message] do |f| %>
 
-    <div class="field">
-      <%= f.label :content %>
-      <%= f.text_field :content %>
-    </div>
+      <div class="field">
+        <%= f.label :content %>
+        <%= f.text_field :content %>
+      </div>
 
-    <div class="actions">
-      <%= f.submit "Message Neighbor"%>
-    </div>
+      <div class="actions">
+        <%= f.submit "Message Neighbor"%>
+      </div>
 
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
 
 <script type="text/javascript" charset="utf-8">
   var pusher = new Pusher('545220afdca7480dd648',
