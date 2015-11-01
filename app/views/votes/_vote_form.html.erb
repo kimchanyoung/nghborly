@@ -1,0 +1,25 @@
+<table class="vote-table">
+  <tr>
+    <td>
+      <%= form_tag('/vote', :method=>'post', :class=>'upvote') do %>
+        <%= hidden_field_tag "vote[value]", 1 %>
+        <%= hidden_field_tag "vote[candidate_id]", current_user.id %>
+        <%= hidden_field_tag "vote[requester_id]", current_user.id %>
+        <div class="up"><%= image_submit_tag("orange-arrow.png") %></div>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+
+  </tr>
+  <tr>
+    <td>
+      <%= form_tag('/vote', :method=>'post', :class=>'downvote') do %>
+        <%= hidden_field_tag "vote[value]", -1 %>
+        <%= hidden_field_tag "vote[candidate_id]", current_user.id %>
+        <%= hidden_field_tag "vote[requester_id]", current_user.id %>
+        <div class="down"><%= image_submit_tag("orange-arrow.png") %></div>
+      <% end %>
+    </td>
+  </tr>
+</table>
