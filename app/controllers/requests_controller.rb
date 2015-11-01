@@ -9,7 +9,7 @@ class RequestsController < UserActionsController
 
   def create
     @request = Request.new(request_attributes)
-    @request.requester = current_user
+
     if @request.save
       Transaction.create(request_id: @request.id, transaction_type: 'request')
       current_user.group.users.each do |user|
@@ -71,6 +71,7 @@ class RequestsController < UserActionsController
   private
 
   def request_attributes
-    params.require(:request).permit(:content)
+    known_attrs = {requester_id: current_user.id, group_id: current_user.group_id}
+    params.require(:request).permit(:content).merge(known_attrs)
   end
 end
