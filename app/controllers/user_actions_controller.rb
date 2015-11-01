@@ -1,6 +1,6 @@
 class UserActionsController < ApplicationController
-  before_action :assigned_to_group
   before_action :logged_in?, only: [:new, :create]
+  before_action :assigned_to_group
 
   private
 
