@@ -16,14 +16,6 @@ class Request < ActiveRecord::Base
     true
   end
 
-  def other_party
-    if current_user == requester
-      responder
-    elsif current_user == responder
-      requester
-    end
-  end
-
   private
 
   def defaultly_unfulfilled
