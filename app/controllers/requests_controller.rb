@@ -1,5 +1,4 @@
 class RequestsController < UserActionsController
-  before_action :can_view?, only: [:show]
 
   def index
     @requests = Request.where(group_id: current_user.group_id)
@@ -25,6 +24,12 @@ class RequestsController < UserActionsController
   end
 
   def show
+    @request = Request.find_by(id: params[:id])
+
+    unless @request.can_view?(current_user)
+      flash[:error] = "One of your neighbors is already fulfilling that request!"
+      redirect_to requests_path(@request)
+    end
   end
 
   def update
@@ -67,16 +72,6 @@ class RequestsController < UserActionsController
       request.responder
     elsif current_user == request.responder
       request.requester
-    end
-  end
-
-  def can_view?
-    @request = Request.find_by(id: params[:id])
-
-    if @request.responder.nil?
-      current_user.group == @request.group
-    else
-      @request.is_party_to?(current_user)
     end
   end
 
