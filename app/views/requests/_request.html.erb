@@ -1,4 +1,4 @@
-<li>
+<li class="request" data-id="<%= request.id %>">
   <%= request.requester.first_name %> said: <%= request.content %>
   At <%= request.created_at %>
   <% if request.requester == current_user %>
