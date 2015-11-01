@@ -9,7 +9,9 @@
     <%= button_to "Cancel Request", request, class: 'button', method: 'delete' %>
   <% elsif request.responder == nil %>
     <%= button_to 'Be a neighbor!', request, class: 'button', method: 'patch' %>
-  <% else %>
+  <% end %>
+
+  <% unless request.responder.nil? %>
     <%= link_to "Initiate Chat", request_messages_path(request) %>
   <% end %>
 </li>
