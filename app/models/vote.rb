@@ -9,8 +9,7 @@ class Vote < ActiveRecord::Base
   validates :candidate_id, uniqueness: {scope: :request_id}
 
   def update_parent_vote_total
-    if self.voter == "User"
-        User.find(self.voter_id).count_votes
+        User.find(self.request_id).count_votes
     end
 end
 end
