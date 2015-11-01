@@ -4,7 +4,7 @@ class Transaction < ActiveRecord::Base
   validates :transaction_type, inclusion: { in: ['request', 'response', 'fulfillment'] }
 
   def self.sort_by_group(group)
-    Transaction.joins(:requester).where(requesters: {group_id: group.id})
+    Transaction.joins(:request).where(requests: {group_id: group.id})
   end
 
   def self.sort_by_user(user)
