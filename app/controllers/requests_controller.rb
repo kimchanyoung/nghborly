@@ -24,6 +24,7 @@ class RequestsController < UserActionsController
 
   def show
     @request = Request.find_by(id: params[:id])
+    binding.pry
   end
 
   def update
@@ -61,7 +62,16 @@ class RequestsController < UserActionsController
     redirect_to root_path
   end
 
+  def other_party_of(request)
+    if current_user == request.requester
+      request.responder
+    elsif current_user == request.responder
+      request.requester
+    end
+  end
+
   private
+
 
   def request_attributes
     known_attrs = {requester_id: current_user.id, group_id: current_user.group_id}
