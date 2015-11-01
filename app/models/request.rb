@@ -16,7 +16,7 @@ class Request < ActiveRecord::Base
       # Difference is returned in seconds; set to 45 minutes
       (Time.now - created_at) <= 2700
     else
-      !is_fullfilled
+      !is_fulfilled
     end
   end
 
