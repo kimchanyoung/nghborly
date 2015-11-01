@@ -1,4 +1,6 @@
 class RequestsController < UserActionsController
+  before_action :can_view?, only: [:show]
+
   def index
     @requests = Request.where(group_id: current_user.group_id)
   end
@@ -23,7 +25,6 @@ class RequestsController < UserActionsController
   end
 
   def show
-    @request = Request.find_by(id: params[:id])
   end
 
   def update
@@ -69,8 +70,17 @@ class RequestsController < UserActionsController
     end
   end
 
-  private
+  def can_view?
+    @request = Request.find_by(id: params[:id])
 
+    if @request.responder.nil?
+      current_user.group == @request.group
+    else
+      @request.is_party_to?(current_user)
+    end
+  end
+
+  private
 
   def request_attributes
     known_attrs = {requester_id: current_user.id, group_id: current_user.group_id}
