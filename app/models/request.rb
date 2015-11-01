@@ -16,6 +16,14 @@ class Request < ActiveRecord::Base
     true
   end
 
+  def can_view?(user)
+    if responder.nil?
+      current_user.group == group
+    else
+      is_party_to?(user)
+    end
+  end
+
   def is_party_to?(user)
     [requester.id, responder.id].include?(user.id)
   end
