@@ -16,6 +16,10 @@ class Request < ActiveRecord::Base
     true
   end
 
+  def is_party_to?(user)
+    [requester.id, responder.id].include?(user.id)
+  end
+
   private
 
   def defaultly_unfulfilled
