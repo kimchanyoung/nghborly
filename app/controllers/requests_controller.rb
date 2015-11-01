@@ -1,4 +1,5 @@
 class RequestsController < UserActionsController
+
   def index
     @requests = Request.where(group_id: current_user.group_id)
   end
@@ -24,6 +25,11 @@ class RequestsController < UserActionsController
 
   def show
     @request = Request.find_by(id: params[:id])
+
+    unless @request.can_view?(current_user)
+      flash[:error] = "One of your neighbors is already fulfilling that request!"
+      redirect_to requests_path(@request)
+    end
   end
 
   def update
@@ -70,7 +76,6 @@ class RequestsController < UserActionsController
   end
 
   private
-
 
   def request_attributes
     known_attrs = {requester_id: current_user.id, group_id: current_user.group_id}

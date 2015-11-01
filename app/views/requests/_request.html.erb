@@ -10,10 +10,6 @@
   <% elsif request.responder == nil %>
     <%= button_to 'Be a neighbor!', request, class: 'button', method: 'patch' %>
   <% else %>
-    <% if request.requester == current_user || request.responder == current_user %>
-      <%= link_to "Initiate Chat", request_messages_path(request) %>
-    <% else %>
-      <p>Someone is already being a neighbor to <%= request.requester.first_name%>. Thanks for checking!  <%= button_to 'Return to Home', root_path %>
-    <% end %>
+    <%= link_to "Initiate Chat", request_messages_path(request) %>
   <% end %>
 </li>
