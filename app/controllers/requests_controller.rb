@@ -47,9 +47,13 @@ class RequestsController < UserActionsController
       end
     else
       if current_user == @request.requester || current_user == @request.responder
-        @request.update_attribute(:is_fulfilled, true)
-        Transaction.create(request_id: @request.id, transaction_type: 'fulfillment')
-        redirect_to request_path(@request)
+        @request.is_fulfilled = true
+        if @request.save
+          Transaction.create(request_id: @request.id, transaction_type: 'fulfillment')
+          redirect_to request_path(@request)
+        else
+          redirect_to "show"
+        end
       else
         flash[:error] = "You are not a party in this transaction!"
         redirect_to root_path
