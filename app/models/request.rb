@@ -12,8 +12,12 @@ class Request < ActiveRecord::Base
   validates :is_fulfilled, inclusion: { in: [true, false] }
 
   def active?
-    # placeholder, must put logic here
-    true
+    if responder.nil?
+      # Difference is returned in seconds; set to 45 minutes
+      (Time.now - created_at) <= 2700
+    else
+      !is_fullfilled
+    end
   end
 
   def can_view?(user)
