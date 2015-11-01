@@ -24,10 +24,6 @@ end
     def vote_params
         params.require(:vote).permit(:value, :request_id)
     end 
-
-    def find_candidate
-        @vote.candidate_id = Vote.find_by(params[:vote][:candidate_id])
-    end 
 end
 
 
