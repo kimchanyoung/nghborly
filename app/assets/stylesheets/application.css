@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+.vote-deets {
+  float: left;
+  width: 32px;
+  margin: 1% 2% 0% 0%;
+  text-align: center
+}
+
+td {
+  text-align: center;
+}
+
+.up {
+    width: 32px;
+    height: 32px;
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+
+.down {
+  width: 32px;
+  height: 32px;
+}
+
+.vote-table {
+  position: relative;
+  top: -15px;
+}
