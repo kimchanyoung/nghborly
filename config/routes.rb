@@ -22,4 +22,5 @@ Rails.application.routes.draw do
     resources :messages
     resources :votes, only: [:create]
   end
+
 end
