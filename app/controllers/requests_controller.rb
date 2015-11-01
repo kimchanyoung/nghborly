@@ -29,7 +29,7 @@ class RequestsController < UserActionsController
 
     unless @request.can_view?(current_user)
       flash[:error] = "One of your neighbors is already fulfilling that request!"
-      redirect_to requests_path(@request)
+      redirect_to requests_path
     end
   end
 
@@ -43,7 +43,7 @@ class RequestsController < UserActionsController
         redirect_to request_path
       else
         flash[:error] = @request.errors.full_messages.join(', ')
-        redirect_to "show"
+        redirect_to request_path
       end
     else
       if current_user == @request.requester || current_user == @request.responder
