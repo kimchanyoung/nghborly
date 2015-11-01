@@ -18,7 +18,7 @@ class Request < ActiveRecord::Base
 
   def can_view?(user)
     if responder.nil?
-      current_user.group == group
+      user.group == group
     else
       is_party_to?(user)
     end
