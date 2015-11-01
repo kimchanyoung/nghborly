@@ -39,9 +39,14 @@ class RequestsController < UserActionsController
         redirect_to "show"
       end
     else
-      @request.update_attribute(:is_fulfilled, true)
-      Transaction.create(request_id: @request.id, transaction_type: 'fulfillment')
-      redirect_to request_path(@request)
+      if current_user == @request.requester || current_user == @request.responder
+        @request.update_attribute(:is_fulfilled, true)
+        Transaction.create(request_id: @request.id, transaction_type: 'fulfillment')
+        redirect_to request_path(@request)
+      else
+        flash[:error] = "You are not a party in this transaction!"
+        redirect_to root_path
+      end
     end
   end
 
@@ -54,18 +59,6 @@ class RequestsController < UserActionsController
       flash[:error] = "You cannot cancel someone else's request!"
     end
     redirect_to root_path
-  end
-
-  def active
-
-  end
-
-  def river
-
-  end
-
-  def history
-
   end
 
   private
