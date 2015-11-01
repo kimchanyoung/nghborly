@@ -1,6 +1,6 @@
 class RequestsController < UserActionsController
   def index
-    @requests = Request.all
+    @requests = Request.where(group_id: current_user.group_id)
   end
 
   def new
