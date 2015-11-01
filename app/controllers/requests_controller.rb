@@ -39,9 +39,14 @@ class RequestsController < UserActionsController
         redirect_to "show"
       end
     else
-      @request.update_attribute(:is_fulfilled, true)
-      Transaction.create(request_id: @request.id, transaction_type: 'fulfillment')
-      redirect_to request_path(@request)
+      if current_user == @request.requester || current_user == @request.responder
+        @request.update_attribute(:is_fulfilled, true)
+        Transaction.create(request_id: @request.id, transaction_type: 'fulfillment')
+        redirect_to request_path(@request)
+      else
+        flash[:error] = "You are not a party in this transaction!"
+        redirect_to root_path
+      end
     end
   end
 
@@ -56,19 +61,16 @@ class RequestsController < UserActionsController
     redirect_to root_path
   end
 
-  def active
-
-  end
-
-  def river
-
-  end
-
-  def history
-
+  def other_party_of(request)
+    if current_user == request.requester
+      request.responder
+    elsif current_user == request.responder
+      request.requester
+    end
   end
 
   private
+
 
   def request_attributes
     known_attrs = {requester_id: current_user.id, group_id: current_user.group_id}
