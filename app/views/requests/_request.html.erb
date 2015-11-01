@@ -4,14 +4,24 @@
     <%= request.requester.first_name %> said: <%= request.content %>
     At <%= request.created_at %>
   </p>
-
-  <% if request.requester == current_user %>
-    <%= button_to "Cancel Request", request, class: 'button', method: 'delete' %>
-  <% elsif request.responder == nil %>
-    <%= button_to 'Be a neighbor!', request, class: 'button', method: 'patch' %>
+  <% if request.responder != nil %>
+    <p><%= request.responder.first_name %> has responded to the request!</p>
+  <% end %>
+  <% if request.is_fulfilled %>
+    <p> <%=request.responder.first_name %> has fulfilled <%=request.requester.first_name%>'s request!</p>
   <% end %>
 
-  <% unless request.responder.nil? %>
-    <%= link_to "Initiate Chat", request_messages_path(request) %>
+  <% if !request.is_fulfilled %>
+    <% if request.requester == current_user && request.responder == nil %>
+      <%= button_to "Cancel Request", request, class: 'button', method: 'delete' %>
+    <% elsif request.responder == nil && current_user != request.requester %>
+      <%= button_to 'Be a neighbor!', request, class: 'button', method: 'patch' %>
+    <% elsif request.responder != nil && current_user == request.requester %>
+      <%= button_to 'Request fulfilled!', request, class: 'button', method: 'patch' %>
+    <% end %>
+
+    <% unless request.responder.nil? %>
+      <%= link_to "Initiate Chat", request_messages_path(request) %>
+    <% end %>
   <% end %>
 </li>

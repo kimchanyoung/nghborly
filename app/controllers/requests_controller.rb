@@ -35,19 +35,19 @@ class RequestsController < UserActionsController
 
   def update
     @request = Request.find_by(id: params[:id])
-    if !@request.is_fulfilled
+    if @request.responder == nil && @request.requester != current_user
       @request.responder = current_user if @request.requester != current_user
       if @request.save
         NewResponderMailer.notify(@request, @request.requester).deliver_now
         Transaction.create(request_id: @request.id, transaction_type: 'response')
         flash[:success] = "Thanks for being a good neighbor!"
-        redirect_to request_path
+        redirect_to request_path(@request)
       else
         flash[:error] = @request.errors.full_messages.join(', ')
         redirect_to request_path
       end
-    else
-      if current_user == @request.requester || current_user == @request.responder
+    elsif @request.requester == current_user
+      if current_user == @request.requester
         @request.is_fulfilled = true
         if @request.save
           Transaction.create(request_id: @request.id, transaction_type: 'fulfillment')
