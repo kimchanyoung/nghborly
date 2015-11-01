@@ -6,9 +6,9 @@ class Request < ActiveRecord::Base
 
   belongs_to :requester, class_name: 'User'
   belongs_to :responder, class_name: 'User'
+  belongs_to :group
 
-  validates :content, presence: true
-  validates :requester, presence: true
+  validates :content, :requester, :group, presence: true
   validates :is_fulfilled, inclusion: { in: [true, false] }
 
   def active?
