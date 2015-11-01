@@ -1,5 +1,5 @@
 class MessagesController < UserActionsController
-  before_action :set_request, :require_login, :verify_association
+  before_action :set_request, :verify_association
   before_action :validate_request_status, only: [:create]
 
   def index
@@ -15,7 +15,7 @@ class MessagesController < UserActionsController
       redirect_to request_messages_path(@request)
     else
       flash[:now] = @message.errors.full_messages.join(', ')
-      render request_messages_path(@request)
+      redirect_to request_messages_path(@request)
     end
   end
 
@@ -25,23 +25,16 @@ class MessagesController < UserActionsController
   @request = Request.find_by(id: params[:request_id])
  end
 
-  def require_login
-    unless current_user
-      flash[:error] = "You must be loged in to before this action".
-      redirect_to login_path
-    end
-  end
-
-  def verify_association
-    unless current_user == @request.requester || current_user == @request.responder
-      flash[:error] = "You are not a party to this neighborly request."
-      redirect_to root_path
-    end
-  end
+ def verify_association
+   unless @request.is_party_to?(current_user)
+     redirect_to request_path(@request)
+   end
+ end
 
   def validate_request_status
     unless @request.active?
       flash[:error] = "This request is no longer active."
+      redirect_to request_messages_path(@request)
     end
   end
 
