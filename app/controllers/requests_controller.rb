@@ -15,7 +15,7 @@ class RequestsController < UserActionsController
     if @request.save
       Transaction.create(request_id: @request.id, transaction_type: 'request')
       current_user.group.users.each do |user|
-        NewRequestMailer.notify(@request, user).deliver_now
+        NewRequestMailer.notify(@request, user).deliver_now if user != current_user
       end
       redirect_to request_path(@request)
     else
