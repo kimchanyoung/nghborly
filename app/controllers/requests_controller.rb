@@ -24,7 +24,6 @@ class RequestsController < UserActionsController
 
   def show
     @request = Request.find_by(id: params[:id])
-    binding.pry
   end
 
   def update
