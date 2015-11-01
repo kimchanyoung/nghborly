@@ -7,4 +7,9 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, presence: true
   validates :email, presence: true, uniqueness: true
+
+  def requests_in_last_24_hours
+    conditions = { requester_id: id, created_at: (Time.now - 1.day..Time.now) }
+    Request.where(conditions).count
+  end
 end

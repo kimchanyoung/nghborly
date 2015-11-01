@@ -1,4 +1,5 @@
 class RequestsController < UserActionsController
+  before_action :check_rate_limit, only: [:create]
 
   def index
     @requests = Request.where(group_id: current_user.group_id)
@@ -75,7 +76,15 @@ class RequestsController < UserActionsController
     end
   end
 
+  def check_rate_limit
+    if current_user.requests_in_last_24_hours > 5
+      flash[:error] = "You've exceeded your quota. You're neighbors need some rest!"
+      redirect_to requests_path
+    end
+  end
+
   private
+
 
   def request_attributes
     known_attrs = {requester_id: current_user.id, group_id: current_user.group_id}
