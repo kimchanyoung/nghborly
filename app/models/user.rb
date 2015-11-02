@@ -16,6 +16,6 @@ class User < ActiveRecord::Base
 
       def count_votes
         total = self.votes.sum(:value)
-        self.update_attributes(:vote_count, total)
+        self.vote_count = total
       end
     end
