@@ -1,10 +1,8 @@
 class User < ActiveRecord::Base
-  before_save :count_votes
-
   belongs_to :group
-  has_many :made_requests, class_name: 'Request', foreign_key: 'requester_id'
-  has_many :fulfilled_requests, class_name: 'Request', foreign_key: 'responder_id'
-  has_many :votes, foreign_key: 'candidate_id'
+  has_many   :made_requests, class_name: 'Request', foreign_key: 'requester_id'
+  has_many   :fulfilled_requests, class_name: 'Request', foreign_key: 'responder_id'
+  has_many   :votes, foreign_key: 'candidate_id'
 
   validates :first_name, :last_name, presence: true
   validates :email, presence: true, uniqueness: true
@@ -14,8 +12,7 @@ class User < ActiveRecord::Base
     Request.where(conditions).count
   end
 
-  def count_votes
-    total = self.votes.sum(:value)
-    self.vote_count = total
+  def update_vote_total
+    update(vote_count: self.votes.sum(:value))
   end
 end
