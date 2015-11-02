@@ -73,13 +73,6 @@ class RequestsController < UserActionsController
     redirect_to root_path
   end
 
-  def other_party_of(request)
-    if current_user == request.requester
-      request.responder
-    elsif current_user == request.responder
-      request.requester
-    end
-  end
 
   def check_rate_limit
     if current_user.requests_in_last_24_hours > 5

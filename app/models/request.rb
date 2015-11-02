@@ -3,6 +3,7 @@ class Request < ActiveRecord::Base
 
   has_many :messages
   has_many :transactions
+  has_many :votes
 
   belongs_to :requester, class_name: 'User'
   belongs_to :responder, class_name: 'User'

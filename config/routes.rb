@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root to: 'welcome#index'
 
-  get '/login', :to => 'sessions#new', :as => :login
-  get '/logout', :to => 'sessions#destroy', :as => :logout
+  get   '/login', :to => 'sessions#new', :as => :login
+  get   '/logout', :to => 'sessions#destroy', :as => :logout
+
   get "/auth/auth0/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"
 
@@ -19,5 +20,7 @@ Rails.application.routes.draw do
 
   resources :requests do
     resources :messages
+    resources :votes, only: [:create]
   end
+
 end
