@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+      before_save :count_votes
+      
       belongs_to :group
       has_many :made_requests, class_name: 'Request', foreign_key: 'requester_id'
       has_many :fulfilled_requests, class_name: 'Request', foreign_key: 'responder_id'
