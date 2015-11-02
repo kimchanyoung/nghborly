@@ -88,6 +88,11 @@ class RequestsController < UserActionsController
     end
   end
 
+  def active
+    @requests = Request.order('created_at DESC').limit(25).select{ |req| req.active? }
+    render 'requests/index.html.erb'
+  end
+
   private
 
 
