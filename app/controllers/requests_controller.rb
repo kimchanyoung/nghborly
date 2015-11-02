@@ -44,7 +44,7 @@ class RequestsController < UserActionsController
         redirect_to request_path(@request)
       else
         flash[:error] = @request.errors.full_messages.join(', ')
-        redirect_to request_path
+        redirect_to root_path
       end
     elsif @request.requester == current_user
       if current_user == @request.requester
