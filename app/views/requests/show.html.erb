@@ -1,5 +1,7 @@
 <%= render @request %>
 
 <% if @request.is_fulfilled %>
- <div class="vote-deets"><%= render "votes/vote_form", :object => @user, :vote => @vote %></div>
+  <div class="vote-details">
+    <%= render partial: "votes/vote_form", locals: {request_obj: @request} %>
+  </div>
 <% end %>
