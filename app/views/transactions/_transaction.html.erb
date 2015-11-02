@@ -1,9 +1,9 @@
 <% if transaction.transaction_type == 'request' %>
-  <%= transaction.request.requester.first_name %> has made a request.
+  <%= link_to transaction.request.requester.first_name, user_path(request.requester) %> has made a request.
 <% elsif transaction.transaction_type == 'response' %>
-  <%= transaction.request.responder.first_name %> has responded to <%= transaction.request.requester.first_name %>'s request!
+  <%= link_to transaction.request.responder.first_name, user_path(request.responder) %> has responded to <%= link_to transaction.request.requester.first_name, user_path(request.requester) %>'s request!
 <% elsif transaction.transaction_type == 'fulfillment' %>
-  <%= transaction.request.responder.first_name %> has fulfilled <%= transaction.request.requester.first_name %>'s request!
+  <%= link_to transaction.request.responder.first_name, user_path(request.responder) %> has fulfilled <%= link_to transaction.request.requester.first_name, user_path(request.requester) %>'s request!
 <% else %>
   Poop
 <% end %>

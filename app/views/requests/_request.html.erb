@@ -1,14 +1,14 @@
 <li class="request" data-id="<%= request.id %>">
 
   <p class="content">
-    <%= request.requester.first_name %> said: <%= request.content %>
+    <%= link_to request.requester.first_name, user_path(request.requester) %> said: <%= request.content %>
     At <%= request.created_at %>
   </p>
   <% if request.responder != nil %>
-    <p><%= request.responder.first_name %> has responded to the request!</p>
+    <p><%= link_to request.responder.first_name, user_path(request.responder) %> has responded to the request!</p>
   <% end %>
   <% if request.is_fulfilled %>
-    <p> <%=request.responder.first_name %> has fulfilled <%=request.requester.first_name%>'s request!</p>
+    <p> <%= link_to request.responder.first_name, user_path(request.responder) %> has fulfilled <%= link_to request.requester.first_name, user_path(request.requester) %>'s request!</p>
   <% end %>
 
   <% if !request.is_fulfilled %>
