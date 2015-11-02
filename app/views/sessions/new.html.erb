@@ -1,9 +1,9 @@
 <script src="https://cdn.auth0.com/js/lock-7.9.min.js"></script>
 <script type="text/javascript">
-  
+
   var lock = new Auth0Lock('WuwkvmO3lwnNQO0u7LMQrhYkiKlTjLGW', 'nghborly.auth0.com');
   var url = (document.location.origin + "/auth/auth0/callback")
-  
+
   function signin() {
     lock.show({
         callbackURL: url
@@ -14,5 +14,7 @@
     });
   }
 </script>
-<button onclick="window.signin();">Login</button>
+Hi neighbor!
+<button onclick="window.signin();">Log in</button>
+To get started.
 
