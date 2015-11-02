@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20151031184023) do
     t.string   "last_name",                                                               null: false
     t.string   "email",                                                                   null: false
     t.integer  "group_id"
-    t.integer "vote_count", null: false, default: 0
+    t.integer  "vote_count", default: 0,                                                  null: false
     t.string   "picture",    default: "http://www.gravatar.com/avatar/?s=60&d=identicon"
     t.datetime "created_at",                                                              null: false
     t.datetime "updated_at",                                                              null: false
