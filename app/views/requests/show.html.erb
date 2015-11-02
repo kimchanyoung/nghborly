@@ -1,5 +1,5 @@
-<%= render request %>
+<%= render @request %>
 
-<if @request.is_fulfilled> 
+<% if @request.is_fulfilled %>
  <div class="vote-deets"><%= render "votes/vote_form", :object => @user, :vote => @vote %></div>
 <% end %>
