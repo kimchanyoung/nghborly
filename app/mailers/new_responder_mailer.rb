@@ -2,7 +2,7 @@ class NewResponderMailer < BaseMandrillMailer
   def notify(request, user)
     subject = "#{request.responder.first_name} has replied to your request!"
     merge_vars = {
-      "REQUEST_URL" => "/requests/#{request.id}",
+      "REQUEST_URL" => "nghbor-ly.herokuapp.com/requests/#{request.id}",
       "REQUESTER_FNAME" => request.requester.first_name,
       "RESPONDER_FNAME" => user.first_name
     }
