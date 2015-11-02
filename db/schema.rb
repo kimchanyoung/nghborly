@@ -17,12 +17,14 @@ ActiveRecord::Schema.define(version: 20151031184023) do
   enable_extension "plpgsql"
 
   create_table "groups", force: :cascade do |t|
-    t.string   "number",     null: false
-    t.string   "street",     null: false
-    t.string   "city",       null: false
-    t.string   "zip_code",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "primary_number",     null: false
+    t.string   "street_name",        null: false
+    t.string   "street_suffix",      null: false
+    t.string   "city_name",          null: false
+    t.string   "state_abbreviation", null: false
+    t.string   "zipcode",            null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "messages", force: :cascade do |t|
