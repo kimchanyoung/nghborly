@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/auth/failure" => "auth0#failure"
 
   get  "/groups/assign", to: "groups#inquire"
+  get  "/groups/reassign", to: "groups#reassign"
   post "/groups/assign", to: "groups#assign"
 
   post 'pusher/auth', to: 'pusher#auth'
