@@ -4,9 +4,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :user_id, null: false
       t.string :first_name, null: false
       t.string :last_name, null: false
-      t.string :email, null: false 
+      t.string :email, null: false
       t.integer :group_id
-      t.integer :vote_count, default: 0
+      t.integer :vote_count, null: false, default: 0
 
       t.timestamps null: false
     end
