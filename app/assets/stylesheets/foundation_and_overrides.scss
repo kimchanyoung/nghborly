@@ -1418,14 +1418,14 @@ $topbar-height: rem-calc(50);
 
 // Set the link colors and styles for top-level nav
 $topbar-link-color: $nblue;
-$topbar-link-color-hover: $nblue-alt;
+$topbar-link-color-hover: $white;
 $topbar-link-color-active: $nblue;
-$topbar-link-color-active-hover: $nblue-alt;
+$topbar-link-color-active-hover: $white;
 // $topbar-link-weight: $font-weight-normal;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 $topbar-link-bg: $white;
-$topbar-link-bg-hover: $white;
+$topbar-link-bg-hover: $nblue-alt;
 $topbar-link-bg-color-hover: $white;
 $topbar-link-bg-active: $white;
 $topbar-link-bg-active-hover: scale-color($nblue-alt, $lightness: -14%);
