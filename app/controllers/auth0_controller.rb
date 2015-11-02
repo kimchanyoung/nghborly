@@ -3,8 +3,8 @@ class Auth0Controller < ApplicationController
 
     user = User.find_or_create_by(user_id: request.env['omniauth.auth']['uid'])
 
-    user.first_name = request.env['omniauth.auth']['info']['last_name']
-    user.last_name = request.env['omniauth.auth']['info']['first_name']
+    user.first_name = request.env['omniauth.auth']['info']['first_name']
+    user.last_name = request.env['omniauth.auth']['info']['last_name']
     user.email = request.env['omniauth.auth']['info']['email']
     user.save
 
