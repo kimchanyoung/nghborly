@@ -2,6 +2,11 @@ class GroupsController < ApplicationController
   def inquire
   end
 
+  def reassign
+    current_user.update(group_id: nil)
+    redirect_to groups_assign_path
+  end
+
   def assign
     user = current_user
 
