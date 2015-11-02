@@ -2,10 +2,11 @@ class Group < ActiveRecord::Base
   has_many :users
   has_many :requests
 
-  validates :street, :city, :number, :zip_code, presence: true
+  validates :primary_number, :street_name, :street_suffix, :city_name,
+            :state_abbreviation, :zipcode, presence: true
 
   def name
-    "#{number} #{street}"
+    "#{primary_number} #{street_name} #{street_suffix}"
   end
 
 end

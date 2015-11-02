@@ -1,28 +1,29 @@
-<h2>Find your Neighbors!</h2>
+<h3>Find your Neighbors!</h2>
 
 <p>We need to know where you live so we can connect you to <strong>your</strong> neighbors.</p>
 
-<%= form_tag do %>
-
+<%= form_for :address do |f| %>
   <div class="field">
-    <%= label_tag :number, "Building Number" %>
-    <%= text_field_tag :number %>
+    <%= f.label :street, "Street" %>
+    <%= f.text_field :street %>
   </div>
 
   <div class="field">
-    <%= label_tag :street, "Street" %>
-    <%= text_field_tag :street %>
+    <%= f.label :city, "City" %>
+    <%= f.text_field :city %>
   </div>
 
   <div class="field">
-    <%= label_tag :city, "city" %>
-    <%= text_field_tag :city %>
+    <%= f.label :state, "State" %>
+    <%= f.text_field :state %>
   </div>
 
   <div class="field">
-    <%= label_tag :zip_code, "Zip Code" %>
-    <%= text_field_tag :zip_code %>
+    <%= f.label :zip_code, "Zip Code" %>
+    <%= f.text_field :zip_code %>
   </div>
 
-  <%= submit_tag "Find Your Neighbors!" %>
+  <div class="actions">
+    <%= submit_tag "Find Your Neighbors!" %>
+  </div>
 <% end %>
