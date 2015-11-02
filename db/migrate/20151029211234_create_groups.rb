@@ -1,10 +1,12 @@
 class CreateGroups < ActiveRecord::Migration
   def change
     create_table :groups do |t|
-      t.string :number,   null: false
-      t.string  :street,   null: false
-      t.string  :city,     null: false
-      t.string :zip_code, null: false
+      t.string  :primary_number,     null: false
+      t.string  :street_name,        null: false
+      t.string  :street_suffix,      null: false
+      t.string  :city_name,          null: false
+      t.string  :state_abbreviation, null: false
+      t.string  :zipcode,            null: false
 
       t.timestamps null: false
     end
