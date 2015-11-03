@@ -27,4 +27,6 @@ Rails.application.routes.draw do
     resources :votes, only: [:create]
   end
 
+  match "/404" => "errors#error404", via: [:get, :post, :patch, :delete]
+
 end
