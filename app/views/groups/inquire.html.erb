@@ -1,6 +1,12 @@
-<h3>Find your Neighbors!</h2>
-
-<p>We need to know where you live so we can connect you to <strong>your</strong> neighbors.</p>
+<div class="row">
+  <div class='small-8 small-centered text-center column'>
+    <h4>Hi <%= current_user.first_name %>!</h4>
+  </div>
+  <div class='small-12 small-centered text-center column'>
+    To begin, let's get you connected with your neighbors.
+    Where is home for you?
+  </div>
+</div>
 
 <%= form_for :address do |f| %>
   <div class="field">
