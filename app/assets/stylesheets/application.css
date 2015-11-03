@@ -110,16 +110,20 @@ footer {
   border-radius: 50%
 }
 
-.transactions {
-  list-style: none;
-  padding: .5em;
-  margin: .5em;
-  border: 1px solid black;
-  border-radius: 50px;
-}
 
 .msg-buffer {
   height: 70px;
+}
+
+.transactions {
+  list-style: none;
+  text-align: center;
+  background: white;
+  color: #333;
+  border-top: 2px solid #ccc;
+  margin: 1em;
+  padding-top: 1em;
+  font-weight: 200;
 }
 
 .top-bar.expanded {
