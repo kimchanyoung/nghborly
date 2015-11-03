@@ -6,4 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Group.create(number: "48", street: "Wall Street", city: "New York", zip_code: "10005")
+# Create a single group
+
+Group.find_or_create_by({primary_number: "48",
+                         street_name: "Wall",
+                         street_suffix: "St",
+                         city_name: "New York",
+                         state_abbreviation: "NY",
+                         zipcode: "10005"})
