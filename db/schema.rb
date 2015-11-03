@@ -51,14 +51,15 @@ ActiveRecord::Schema.define(version: 20151031184023) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "user_id",                null: false
-    t.string   "first_name",             null: false
-    t.string   "last_name",              null: false
-    t.string   "email",                  null: false
+    t.string   "user_id",                                                                 null: false
+    t.string   "first_name",                                                              null: false
+    t.string   "last_name",                                                               null: false
+    t.string   "email",                                                                   null: false
     t.integer  "group_id"
-    t.integer  "vote_count", default: 0, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "vote_count", default: 0,                                                  null: false
+    t.string   "picture",    default: "http://www.gravatar.com/avatar/?s=60&d=identicon"
+    t.datetime "created_at",                                                              null: false
+    t.datetime "updated_at",                                                              null: false
   end
 
   create_table "votes", force: :cascade do |t|
