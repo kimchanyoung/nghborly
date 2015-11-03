@@ -14,4 +14,8 @@ class Transaction < ActiveRecord::Base
   def self.sort_by_active
     Transaction.joins(:request).where('transaction_type LIKE :type AND transactions.created_at BETWEEN :then AND :now', type: 'request', then: 1.hour.ago, now: Time.now).where(requests: {is_fulfilled: false})
   end
+
+  def pretty_date
+    time_ago_in_words(created_at)
+  end
 end

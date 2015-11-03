@@ -44,6 +44,8 @@ td {
   top: -15px;
 }
 */
+
+
 .intro-text {
   text-align: center;
   margin: 1em;
@@ -104,8 +106,24 @@ footer {
   border-radius: 50px;
 }
 
+.profpic {
+  border-radius: 50%
+}
+
+
 .msg-buffer {
   height: 70px;
+}
+
+.transactions {
+  list-style: none;
+  text-align: center;
+  background: white;
+  color: #333;
+  border-top: 2px solid #ccc;
+  margin: 1em;
+  padding-top: 1em;
+  font-weight: 200;
 }
 
 .top-bar.expanded {
@@ -130,5 +148,4 @@ position: absolute;
   padding-left: 0;
   box-shadow: none !important;
   text-align: center;
-}
 
