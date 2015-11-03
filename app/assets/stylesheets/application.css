@@ -55,10 +55,11 @@ td {
 
 .river-nav {
   margin-top: 1em;
-  background-color: #87abfd;
 }
 
 .river-btn {
   margin: 0px;
   padding: 0px;
+  border-right, border-top, border-left: 1px solid #87abfd;
+  background-color: white;
 }
