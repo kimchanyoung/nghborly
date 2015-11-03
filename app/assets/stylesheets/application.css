@@ -63,3 +63,13 @@ td {
   border-right, border-top, border-left: 1px solid #87abfd;
   background-color: white;
 }
+
+.intro-logo {
+  margin: 1em;
+  text-align: center;
+  list-style: none;
+}
+
+.login-btn {
+  margin: 1em;
+}
