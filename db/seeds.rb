@@ -17,31 +17,37 @@ g = Group.find_or_create_by({primary_number: "48",
 
 # Create 5 Users, all in the same group
 steven = User.create({first_name: "Steven",
+                      user_id: "1",
                       last_name: "Leiva",
                       email:"leiva.steven@gmail.com",
                       group_id: g.id})
 
 sarah = User.create({first_name: "Sarah",
+                      user_id: "2",
                       last_name: "O'Shea",
                       email:"sarah.oshea@gmail.com",
                       group_id: g.id})
 
 chan = User.create({first_name: "Chanyoung",
+                      user_id: "3",
                       last_name: "Kim",
                       email:"chanyoung.kim@gmail.com",
                       group_id: g.id})
 
 ada = User.create({first_name: "Ada",
+                      user_id: "4",
                       last_name: "Lovelace",
                       email:"ada.lovelace@gmail.com",
                       group_id: g.id})
 
 grace = User.create({first_name: "Grace",
+                      user_id: "5",
                       last_name: "Hopper",
                       email:"grace.hopper@gmail.com",
                       group_id: g.id})
 
 betty = User.create({first_name: "Betty",
+                      user_id: "6",
                       last_name: "Holberton",
                       email:"betty.holberton@gmail.com",
                       group_id: g.id})
