@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post "/groups/assign", to: "groups#assign"
 
   post 'pusher/auth', to: 'pusher#auth'
+  post 'pusher/groupauth', to: 'pusher#groupauth'
 
   get '/active', :to => 'requests#active', :as => :active
   get '/river', :to => 'transactions#river', :as => :river

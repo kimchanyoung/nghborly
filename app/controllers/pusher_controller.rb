@@ -1,26 +1,32 @@
 class PusherController < ApplicationController
-  protect_from_forgery except: :auth
+  def groupauth
+    if authorize_presence_channel
+      response = Pusher[params[:channel_name]].authenticate(params[:socket_id], {user_id: current_user.id})
+      render json: response
+    else
+      render :text => "Forbidden", :status => '403'
+    end
+  end
 
   def auth
-    puts params
-    response = Pusher[params[:channel_name]].authenticate(params[:socket_id])
-    render json: response
-=begin
-    request = find_request(params[:channel_name])
-
-    if current_user == request.requester || current_user == request.responder
+    if authorize_private_channel
       response = Pusher[params[:channel_name]].authenticate(params[:socket_id])
       render json: response
     else
-      render text: "Not authorized", status: 403
+      render :text => "Forbidden", :status => '403'
     end
-=end
   end
 
   private
 
-  def find_request(channel_name)
-    channel_id = channel_name.sub('private-', '')
-    Request.find_by(id: channel_id).include(:requester, :responder)
+  def authorize_presence_channel
+    channel_postfix = params[:channel_name].sub('presence-', '')
+    current_user.group.id == channel_postfix.to_i
+  end
+
+  def authorize_private_channel
+    channel_postfix = params[:channel_name].sub('private-','').to_i
+    request = Request.find_by(id: channel_postfix)
+    request.is_party_to?(current_user)
   end
 end
