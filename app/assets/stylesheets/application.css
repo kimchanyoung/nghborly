@@ -74,3 +74,13 @@ td {
 .login-btn {
   margin: 1em;
 }
+
+.ping {
+  background-color: white;
+  color: #87abfd;
+  border: 2px solid #87abfd;
+}
+
+.request-form {
+  margin: 1em;
+}
