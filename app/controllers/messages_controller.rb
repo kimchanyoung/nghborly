@@ -12,10 +12,10 @@ class MessagesController < UserActionsController
 
     if @message.save
       trigger_message_event(@message)
-      redirect_to request_messages_path(@request)
+      redirect_to request_messages_path(@request, anchor: 'bottom')
     else
       flash[:now] = @message.errors.full_messages.join(', ')
-      redirect_to request_messages_path(@request)
+      redirect_to request_messages_path(@request, anchor: 'bottom')
     end
   end
 
