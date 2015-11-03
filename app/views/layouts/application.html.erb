@@ -14,28 +14,32 @@
   </head>
 
   <body>
-    <nav class="top-bar" data-topbar role="navigation">
-      <ul class="title-area">
-        <li class="name">
-          <h1><%= link_to image_tag('nghborly-logo-tiny.png'), root_path %></h1>
-        </li>
-         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-      </ul>
+      <% if current_user %>
+      <div class="fixed">
+        <nav class="top-bar" data-topbar role="navigation">
+          <ul class="title-area">
+            <li class="name">
+              <h1><%= link_to image_tag('nghborly-logo-tiny.png'), root_path %></h1>
+            </li>
+             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+          </ul>
 
-      <section class="top-bar-section">
-        <ul class="right">
-          <li class="active"><a href="#">Profile</a></li>
-          <li class='has-dropdown'>
-            <a href='#'>Neighborhood</a>
-            <ul class='dropdown'>
-              <li class="active"><a href="#">My neighbors</a></li>
-              <li class="active"><%= link_to "Move neighborhoods", groups_assign_path %></li>
+          <section class="top-bar-section">
+            <ul class="right">
+              <li class="active nav-link"><a href="#">Profile</a></li>
+              <li class="active nav-link"><a href="#">My neighbors</a></li>
+              <li class="active nav-link"><a href='/logout'>Log out</a></li>
             </ul>
-          <li class="active"><a href='/logout'>Log out</a></li>
-        </ul>
-      </section>
-    </nav>
+          </section>
+        </nav>
+      </div>
+    <% else %>
+      <div class='row'><div class='small-12 small-centered center-text columns'><li class='intro-logo'>
+        <%= link_to image_tag('nghborly-logo-blue1-250.png', class: 'intro-logo'), root_path %>
+      </li>
+      </div></div>
+    <% end %>
     <%= yield %>
 
   </body>

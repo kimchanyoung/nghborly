@@ -62,4 +62,59 @@ td {
   padding: 0px;
   border-right, border-top, border-left: 1px solid #87abfd;
   background-color: white;
+  color: black;
+}
+
+.intro-logo {
+  margin: 1em;
+  text-align: center;
+  list-style: none;
+}
+
+.login-btn {
+  margin: 1em;
+}
+
+.ping {
+  background-color: white;
+  color: #87abfd;
+  border: 2px solid #87abfd;
+}
+
+.request-form {
+  margin: 1em;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    padding: 0px;
+    padding-top: 1em;
+    background-color: white;
+}
+
+.msg {
+  display:block;
+  list-style: none;
+  padding: .5em;
+  margin: .5em;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
+.msg-buffer {
+  height: 70px;
+}
+
+.top-bar.expanded {
+overflow:visible;
+}
+.top-bar-section ul {
+position: absolute;
+}
+
+.nav-link {
+  border: 1px solid white;
 }

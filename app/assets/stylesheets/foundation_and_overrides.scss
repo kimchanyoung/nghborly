@@ -115,13 +115,13 @@ $white       : #FFFFFF;
 // $jet         : #222222;
 // $black       : #000000;
 $nblue        : #87abfd;
-$nblue-alt    : #5f8aec;
+$nblue-alt    : #4D6BB0;
 
 // We use these as default colors throughout
 // $primary-color: #87abfd;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
-// $success-color: #43AC6A;
+$success-color: #7BB01C;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
 
@@ -454,7 +454,7 @@ $nblue-alt    : #5f8aec;
 // We use these to control button text styles.
 // $button-font-family: $body-font-family;
 // $button-font-color: $white;
-// $button-font-color-alt: $oil;
+$button-font-color-alt: $white;
 // $button-font-tny: rem-calc(11);
 // $button-font-sml: rem-calc(13);
 // $button-font-med: rem-calc(16);

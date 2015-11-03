@@ -20,7 +20,7 @@ class RequestsController < UserActionsController
       redirect_to request_path(@request)
     else
       flash[:alert] = @request.errors.full_messages.join(", ")
-      render 'new'
+      render 'welcome/index'
     end
   end
 
@@ -28,7 +28,7 @@ class RequestsController < UserActionsController
     @request = Request.find_by(id: params[:id])
 
     unless @request.can_view?(current_user)
-      flash[:error] = "One of your neighbors is already fulfilling that request!"
+      flash[:alert] = "One of your neighbors is already fulfilling that request!"
       redirect_to requests_path
     end
   end
@@ -43,7 +43,7 @@ class RequestsController < UserActionsController
         flash[:success] = "Thanks for being a good neighbor!"
         redirect_to request_path(@request)
       else
-        flash[:error] = @request.errors.full_messages.join(', ')
+        flash[:alert] = @request.errors.full_messages.join(', ')
         redirect_to root_path
       end
     elsif @request.requester == current_user
@@ -56,7 +56,7 @@ class RequestsController < UserActionsController
           redirect_to requests_path
         end
       else
-        flash[:error] = "You are not a party in this transaction!"
+        flash[:alert] = "You are not a party in this transaction!"
         redirect_to root_path
       end
     end
@@ -68,7 +68,7 @@ class RequestsController < UserActionsController
       request.destroy
       flash[:success] = 'Request successfully cancelled!'
     else
-      flash[:error] = "You cannot cancel someone else's request!"
+      flash[:alert] = "You cannot cancel someone else's request!"
     end
     redirect_to root_path
   end
@@ -76,7 +76,7 @@ class RequestsController < UserActionsController
 
   def check_rate_limit
     if current_user.requests_in_last_24_hours > 5
-      flash[:error] = "You've exceeded your quota. You're neighbors need some rest!"
+      flash[:alert] = "You've exceeded your quota. You're neighbors need some rest!"
       redirect_to requests_path
     end
   end
