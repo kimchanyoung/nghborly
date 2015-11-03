@@ -1,8 +1,8 @@
 <li class="request" data-id="<%= request.id %>">
 
   <p class="content">
-    <%= link_to request.requester.first_name, user_path(request.requester) %> said: <%= request.content %>
-    At <%= request.created_at %>
+    <%= request.requester.first_name %> said: "<%= request.content %>"
+    <%= time_ago_in_words(request.created_at) %> ago.
   </p>
   <% if request.responder != nil %>
     <p><%= link_to request.responder.first_name, user_path(request.responder) %> has responded to the request!</p>

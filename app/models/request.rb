@@ -33,6 +33,10 @@ class Request < ActiveRecord::Base
     [requester.id, responder.id].include?(user.id)
   end
 
+  def pretty_date
+    time_ago_in_words(created_at)
+  end
+
   private
 
   def defaultly_unfulfilled
