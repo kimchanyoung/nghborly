@@ -149,3 +149,19 @@ position: absolute;
   box-shadow: none !important;
   text-align: center;
 
+.neighbor-summary {
+  margin-top: 1em;
+}
+
+.neighborhood-title {
+  font-size: 2em;
+  color: #4D6BB0;
+}
+
+.move-neighborhoods {
+  margin-top: 2em;
+}
+
+.request-neighborhood {
+  margin-top: 2em;
+}
