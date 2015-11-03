@@ -18,6 +18,7 @@ class GroupsController < ApplicationController
       flash[:now] = "We couldn't find your building. Can you be more specific?"
       render :inquire
     else
+      flash[:success] = "Welcome to #{user.group.name}"
       user.update({group_id: group_id})
       redirect_to root_path
     end
