@@ -107,3 +107,14 @@ footer {
 .msg-buffer {
   height: 70px;
 }
+
+.top-bar.expanded {
+overflow:visible;
+}
+.top-bar-section ul {
+position: absolute;
+}
+
+.nav-link {
+  border: 1px solid red;
+}
