@@ -118,3 +118,17 @@ position: absolute;
 .nav-link {
   border: 1px solid white;
 }
+
+.request-field {
+  background: transparent;
+  border-top: transparent !important;
+  border-left: transparent !important;
+  border-right: transparent !important;
+  border-bottom: 1px solid !important;
+  font-weight: 200;
+  color: white;
+  padding-left: 0;
+  box-shadow: none !important;
+  text-align: center;
+}
+
