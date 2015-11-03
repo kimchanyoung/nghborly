@@ -84,3 +84,26 @@ td {
 .request-form {
   margin: 1em;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    padding: 0px;
+    padding-top: 1em;
+    background-color: white;
+}
+
+.msg {
+  display:block;
+  list-style: none;
+  padding: .5em;
+  margin: .5em;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
+.msg-buffer {
+  height: 70px;
+}
