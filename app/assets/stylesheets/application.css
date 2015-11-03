@@ -44,6 +44,8 @@ td {
   top: -15px;
 }
 */
+
+
 .intro-text {
   text-align: center;
   margin: 1em;
@@ -104,7 +106,7 @@ footer {
   border-radius: 50px;
 }
 
-.image {
+.profpic {
   border-radius: 50%
 }
 
