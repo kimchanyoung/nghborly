@@ -2,6 +2,11 @@
 
 <img width="100" height="100" src="<%= @user.picture %>" alt="<%= @user.first_name %>">
 
-<h3><p><%= @user.first_name %>'s Good Nghbor Points:</p></h3>
+<h3><p><%= @user.first_name %>'s Good Nghbor Points: <%= @user.vote_count %></p></h3>
 
 <h3><p><%= @user.first_name %>'s Recent Activity:</p></h3>
+
+<div id='river'>
+<ul id='my-transactions'>
+</ul>
+</div>
