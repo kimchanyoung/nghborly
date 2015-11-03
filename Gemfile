@@ -23,6 +23,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'mandrill-api'
 
+gem 'foundation-rails'
+
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'

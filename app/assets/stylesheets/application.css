@@ -12,14 +12,15 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
 
-.vote-deets {
+./*vote-deets {
   float: left;
   width: 32px;
   margin: 1% 2% 0% 0%;
   text-align: center
-}
 
 td {
   text-align: center;
@@ -28,17 +29,37 @@ td {
 .up {
     width: 32px;
     height: 32px;
-    -ms-transform: rotate(180deg); /* IE 9 */
-    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    -ms-transform: rotate(180deg);*/ /* IE 9
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera
     transform: rotate(180deg);
 }
 
 .down {
   width: 32px;
   height: 32px;
-}
+}*/
 
-.vote-table {
+/*.vote-table {
   position: relative;
   top: -15px;
+}
+*/
+.intro-text {
+  text-align: center;
+  margin: 1em;
+}
+
+.top-bar {
+  margin-bottom: 2em;
+}
+
+.river-nav {
+  margin-top: 1em;
+}
+
+.river-btn {
+  margin: 0px;
+  padding: 0px;
+  border-right, border-top, border-left: 1px solid #87abfd;
+  background-color: white;
 }
