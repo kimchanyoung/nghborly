@@ -83,7 +83,12 @@ class RequestsController < UserActionsController
 
   def active
     @requests = Request.order('created_at DESC').limit(25).select{ |req| req.active? }
-    render 'requests/index.html.erb'
+
+    if request.xhr?
+      render 'requests/index.html.erb', layout: false
+    else
+      render 'requests/index.html.erb'
+    end
   end
 
   private
