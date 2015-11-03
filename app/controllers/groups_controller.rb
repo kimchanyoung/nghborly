@@ -31,7 +31,7 @@ class GroupsController < ApplicationController
     if normalized_address_params.nil?
       nil
     else
-      Group.find_or_create_by(normalized_address_params)
+      Group.find_or_create_by(normalized_address_params).id
     end
   end
 
