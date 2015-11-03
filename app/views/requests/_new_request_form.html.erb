@@ -1,6 +1,15 @@
 <%= form_for request do |f| %>
-  <%= f.label :content, 'Your request: ' %>
-  <%= f.text_field :content %>
-
-  <%= f.submit 'Ping neighbors!' %>
+  <div class='row'>
+    <div class='small-12 small-centered text-center columns'>
+      <%= f.label :content, 'How can someone be a neighbor to you today? ' %>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='small-10 small-centered text-center columns'>
+      <%= f.text_field :content %>
+    </div>
+  </div>
+  <div class='button-container small-8 small-centered text-center columns'>
+  <%= f.submit 'Request a neighbor!', class: 'button round success' %>
+  </div>
 <% end %>
