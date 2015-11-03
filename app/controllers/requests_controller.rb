@@ -20,7 +20,7 @@ class RequestsController < UserActionsController
       redirect_to request_path(@request)
     else
       flash[:alert] = @request.errors.full_messages.join(", ")
-      render 'new'
+      render 'welcome/index'
     end
   end
 
