@@ -111,7 +111,7 @@ users.each do |user|
                   content: "I'd like to meet #{meeting_place.sample} if that's OK.",
                   sender_id: party_ids[0]})
   Message.create({request_id: request_obj.id,
-                  content: "That's perfect. I can meet you in #{timing.sample}minutes.",
+                  content: "That's perfect. I can meet you in #{timing.sample} minutes.",
                   sender_id: party_ids[1]})
   Message.create({request_id: request_obj.id,
                   content: "See you then!",
