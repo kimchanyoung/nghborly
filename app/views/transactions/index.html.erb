@@ -1,5 +1,7 @@
 <ul class='transactions'>
+<div class='row'>
 <% @transactions.each do |transaction| %>
   <li><%= render 'transaction.html.erb', transaction: transaction %></li>
+</div>
 <% end %>
 </ul>
