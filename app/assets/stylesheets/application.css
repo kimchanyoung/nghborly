@@ -21,7 +21,6 @@
   width: 32px;
   margin: 1% 2% 0% 0%;
   text-align: center
-}
 
 td {
   text-align: center;
@@ -43,4 +42,23 @@ td {
 .vote-table {
   position: relative;
   top: -15px;
+}
+
+.intro-text {
+  text-align: center;
+  margin: 1em;
+}
+
+.top-bar {
+  margin-bottom: 2em;
+}
+
+.river-nav {
+  margin-top: 1em;
+  background-color: #87abfd;
+}
+
+.river-btn {
+  margin: 0px;
+  padding: 0px;
 }
