@@ -104,6 +104,18 @@ footer {
   border-radius: 50px;
 }
 
+.image {
+  border-radius: 50%
+}
+
+.transactions {
+  list-style: none;
+  padding: .5em;
+  margin: .5em;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
 .msg-buffer {
   height: 70px;
 }
@@ -130,4 +142,4 @@ position: absolute;
   padding-left: 0;
   box-shadow: none !important;
   text-align: center;
-}
+
