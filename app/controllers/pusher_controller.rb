@@ -25,7 +25,8 @@ class PusherController < ApplicationController
   end
 
   def authorize_private_channel
-    request = Request.find_by(id: params[:request_id])
+    channel_postfix = params[:channel_name].sub('private-','').to_i
+    request = Request.find_by(id: channel_postfix)
     request.is_party_to?(current_user)
   end
 end
