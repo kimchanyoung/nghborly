@@ -25,8 +25,12 @@
   <section class="top-bar-section">
     <ul class="right">
       <li class="active"><a href="#">Profile</a></li>
-      <li class="active"><a href="#">My neighbors</a></li>
-      <li class="active"><a href="groups_assign_path">Move neighborhoods</a></li>
+      <li class='has-dropdown'>
+        <a href='#'>Neighborhood</a>
+        <ul class='dropdown'>
+          <li class="active"><a href="#">My neighbors</a></li>
+          <li class="active"><%= link_to "Move neighborhoods", groups_assign_path %></li>
+        </ul>
       <li class="active"><a href='/logout'>Log out</a></li>
     </ul>
   </section>
