@@ -21,7 +21,7 @@
     <% end %>
 
     <% unless request.responder.nil? %>
-      <%= link_to "Initiate Chat", request_messages_path(request) %>
+      <%= link_to "Initiate Chat", request_messages_path(request, anchor: 'bottom') %>
     <% end %>
   <% end %>
 </li>
