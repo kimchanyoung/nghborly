@@ -22,6 +22,11 @@ class GroupsController < ApplicationController
     end
   end
 
+  def show
+    @group = Group.find_by(id: params[:id])
+    @neighbors = @group.users
+  end
+
   private
 
   def find_group(address_hash)
