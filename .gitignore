@@ -13,3 +13,5 @@
 /tmp
 .env
 /coverage
+.ruby-version
+.ruby-gemset
