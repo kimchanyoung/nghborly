@@ -16,22 +16,22 @@ g = Group.find_or_create_by({primary_number: "48",
                          zipcode: "10005"})
 
 # Create 5 Users, all in the same group
-steven = User.create({first_name: "Steven",
+carol = User.create({first_name: "Carol",
                       user_id: "1",
-                      last_name: "Leiva",
-                      email:"leiva.steven@gmail.com",
+                      last_name: "Shaw",
+                      email:"carol.shaw@example.com",
                       group_id: g.id})
 
-sarah = User.create({first_name: "Sarah",
+jean = User.create({first_name: "Jean",
                       user_id: "2",
-                      last_name: "O'Shea",
-                      email:"sarah.oshea@gmail.com",
+                      last_name: "Sammet",
+                      email:"jean.sammet@example.com",
                       group_id: g.id})
 
-chan = User.create({first_name: "Chanyoung",
+frances = User.create({first_name: "Frances",
                       user_id: "3",
-                      last_name: "Kim",
-                      email:"chanyoung.kim@gmail.com",
+                      last_name: "Allen",
+                      email:"frances.allen@example.com",
                       group_id: g.id})
 
 ada = User.create({first_name: "Ada",
@@ -52,7 +52,7 @@ betty = User.create({first_name: "Betty",
                       email:"betty.holberton@gmail.com",
                       group_id: g.id})
 
-users = [steven, sarah, chan, ada, grace, betty]
+users = [carol, jean, frances, ada, grace, betty]
 
 requests = ["I need baking soda.",
             "I need sugar.",
