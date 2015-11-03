@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: 'welcome#index'
-  
+
   resources :users, only: [:show]
-  
+
   get   '/login', :to => 'sessions#new', :as => :login
   get   '/logout', :to => 'sessions#destroy', :as => :logout
 
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :requests do
-    resources :messages
+    resources :messages, only: [:index, :create]
     resources :votes, only: [:create]
   end
 
