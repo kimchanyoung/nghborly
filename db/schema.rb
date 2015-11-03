@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20151031184023) do
   create_table "groups", force: :cascade do |t|
     t.string   "primary_number",     null: false
     t.string   "street_name",        null: false
-    t.string   "street_suffix",      null: false
+    t.string   "street_suffix"
     t.string   "city_name",          null: false
     t.string   "state_abbreviation", null: false
     t.string   "zipcode",            null: false
