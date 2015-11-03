@@ -1,3 +1,10 @@
+<% if flash[:alert] %>
+  <div data-alert class="alert-box alert radius">
+    <%= flash[:alert] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
 <%= render 'requests/new_request_form', request: Request.new %>
 <div class='row collapse'>
   <ul class='button-group even-3 small-12 columns river-nav'>
