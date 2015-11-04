@@ -48,13 +48,13 @@
     $('#group-transactions').append(element);
 
     if (data.user_id === <%= current_user.id %>) {
-      $('#my-transactions').append(element);
+      $('#my-transactions').preend(element);
     }
 
   });
 
   channel.bind("new_request_posted", function(data) {
-    $('#active-requests').append('<li>' + data.content + '</li>');
+    $('#active-requests').prepend('<li>' + data.content + '</li>');
   });
 </script>
 
