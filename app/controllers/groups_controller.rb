@@ -21,7 +21,7 @@ class GroupsController < ApplicationController
     else
       user.update({group_id: group_id})
       flash[:success] = "Welcome to #{user.group.name}"
-      redirect_to root_path
+      redirect_to group_path(user.group)
     end
   end
 

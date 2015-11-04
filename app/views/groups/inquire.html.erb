@@ -3,22 +3,20 @@
     <h4>Hi <%= current_user.first_name %>!</h4>
   </div>
   <div class='small-10 small-centered text-center column'>
-    <div>To begin, let's get you connected with your neighbors.</div>
+    <div>Let's get you connected with your neighbors.</div>
     <div>Where is home for you?</div>
   </div>
 </div>
 
 <%= form_for :address do |f| %>
   <div class="field row">
-    <div class="small-12 columns">
+    <div class="small-9 columns">
       <%= f.label :street, "Street" %>
       <%= f.text_field :street %>
     </div>
-  </div>
 
-  <div class="field row">
-    <div class="small-12 columns">
-      <%= f.label :apartment, "Apartment / Floor" %>
+    <div class="small-3 columns">
+      <%= f.label :apartment, "Apt" %>
       <%= f.text_field :apartment %>
     </div>
   </div>
@@ -46,7 +44,7 @@
 
   <div class="actions row">
     <div class='small-12 text-center columns'>
-      <%= submit_tag "Find Your Neighbors!", class: 'button success' %>
+      <%= submit_tag "Find Me My Neighbors!", class: 'button round success' %>
     </div>
   </div>
 <% end %>
