@@ -14,7 +14,7 @@
   </head>
 
   <body>
-      <% if current_user %>
+      <% if current_user && current_user.group %>
       <div class="fixed">
         <nav class="top-bar" data-topbar role="navigation">
           <ul class="title-area">
