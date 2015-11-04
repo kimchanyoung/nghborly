@@ -44,15 +44,10 @@ class GroupsController < ApplicationController
 
   def normalize_address_params(address_hash)
     base_api_endpoint = URI("https://api.smartystreets.com/street-address")
-
     secrets = {'auth-id' =>  ENV['SMARTY_STREETS_AUTH_ID'], 'auth-token' => ENV['SMARTY_STREETS_AUTH_TOKEN']}
-
     query = secrets.merge(address_hash)
-
     base_api_endpoint.query = URI.encode_www_form(query)
-
     api_response = Net::HTTP.get_response(base_api_endpoint)
-
     results = JSON.parse(api_response.body)
 
     if results.empty?
@@ -60,14 +55,11 @@ class GroupsController < ApplicationController
     else
       clean_results(results.first["components"])
     end
-
   end
 
   def clean_results(hash)
     unnecessary_keys = %w(plus4_code delivery_point delivery_point_check_digit)
-
     unnecessary_keys.each { |key| hash.delete(key) }
-
     hash
   end
 end
