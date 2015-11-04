@@ -125,6 +125,7 @@ footer {
   margin: 1em;
   padding-top: 1em;
   font-weight: 200;
+  max-height: 20px;
 }
 
 .top-bar.expanded {
@@ -166,4 +167,16 @@ position: absolute;
 
 .request-neighborhood {
   margin-top: 2em;
+}
+
+.request {
+  list-style: none;
+  text-align: center;
+}
+
+p.content {
+  font-weight: 200;
+  border-top: 2px solid #ccc;
+  margin: 1em;
+  padding-top: 1em;
 }
