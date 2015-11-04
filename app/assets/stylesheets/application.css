@@ -16,11 +16,12 @@
 
  */
 
-./*vote-deets {
+.vote-deets {
   float: left;
   width: 32px;
   margin: 1% 2% 0% 0%;
   text-align: center
+}
 
 td {
   text-align: center;
@@ -29,15 +30,15 @@ td {
 .up {
     width: 32px;
     height: 32px;
-    -ms-transform: rotate(180deg);*/ /* IE 9
-    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera
+    -ms-transform: rotate(180deg);  IE 9
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
     transform: rotate(180deg);
 }
 
 .down {
   width: 32px;
   height: 32px;
-}*/
+}
 
 /*.vote-table {
   position: relative;
@@ -148,4 +149,21 @@ position: absolute;
   padding-left: 0;
   box-shadow: none !important;
   text-align: center;
+}
 
+.neighbor-summary {
+  margin: 1em;
+}
+
+.neighborhood-title {
+  font-size: 2em;
+  color: #4D6BB0;
+}
+
+.move-neighborhoods {
+  margin-top: 2em;
+}
+
+.request-neighborhood {
+  margin-top: 2em;
+}

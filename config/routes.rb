@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get  "/groups/assign", to: "groups#inquire"
   get  "/groups/reassign", to: "groups#reassign"
   post "/groups/assign", to: "groups#assign"
+  resources :groups, only: [:show]
 
   post 'pusher/auth', to: 'pusher#auth'
   post 'pusher/groupauth', to: 'pusher#groupauth'

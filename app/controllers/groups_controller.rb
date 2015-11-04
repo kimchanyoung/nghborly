@@ -15,11 +15,16 @@ class GroupsController < ApplicationController
     user.group_id = group.id
 
     if user.save
-      redirect_to root_path
+      redirect_to group_path(group)
     else
       flash[:now] = "We couldn't assign you to a building!"
       render :inquire
     end
+  end
+
+  def show
+    @group = Group.find_by(id: params[:id])
+    @users = @group.users
   end
 
   private

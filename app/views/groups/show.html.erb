@@ -1,0 +1,16 @@
+<div class='row'>
+  <div class='small-12 text-center columns neighborhood-title'>
+    meet your nghbors!
+  </div>
+</div>
+<% @users.each do |user| %>
+  <%= render 'users/user_summary', user: user %>
+<% end %>
+<div class='row'>
+  <div class='small-8 columns even'>
+    <%= link_to "Request a neighbor!", root_path, class:"button small round success request-neighborhood" %>
+  </div>
+  <div class='small-4 columns'>
+    <%= link_to "Move", groups_assign_path, class:"button small round alert move-neighborhoods" %>
+  </div>
+</div>
