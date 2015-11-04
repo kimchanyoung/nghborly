@@ -7,7 +7,7 @@ FactoryGirl.define do
     zipcode            { Faker::Address.zip_code }
   end
 
-  factory :user, aliases: [:requester, :responder] do
+  factory :user, aliases: [:candidate, :requester, :responder] do
     user_id    { Faker::Number.number(15)}
     first_name { Faker::Name.first_name }
     last_name  { Faker::Name.last_name }
@@ -38,8 +38,8 @@ FactoryGirl.define do
   end
 
   factory :vote do
-    association :requester
-    association :responder
+    association :request
+    association :candidate
     value { [1, -1].sample }
   end
 end
