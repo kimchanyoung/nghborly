@@ -36,4 +36,10 @@ FactoryGirl.define do
     factory :fulfilled_request , traits: [:has_neighbor, :is_fulfilled]
     factory :day_old_request, traits: [:created_one_day_ago]
   end
+
+  factory :vote do
+    association :requester
+    association :responder
+    value { [1, -1].sample }
+  end
 end
