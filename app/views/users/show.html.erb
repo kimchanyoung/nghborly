@@ -1,6 +1,8 @@
+<div class='row'>
+<div class='small-12 small-centered text-center columns'>
 <h1><p><%= @user.first_name %>'s Profile</p></h1>
 
-<img class="profpic" width="200" height="200" src="<%= @user.picture %>" alt="<%= @user.first_name %>">
+<img class="profpic" width="150" height="150" src="<%= @user.picture %>" alt="<%= @user.first_name %>">
 
 <h3><p><%= @user.first_name %>'s Good Nghbor Points: <%= @user.vote_count %></p></h3>
 
@@ -9,4 +11,5 @@
 <div id='river'>
 <ul id='my-transactions'>
 </ul>
+</div>
 </div>
