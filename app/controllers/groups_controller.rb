@@ -3,22 +3,25 @@ class GroupsController < ApplicationController
   end
 
   def reassign
-    current_user.update(group_id: nil)
+    current_user.update({group_id: nil})
     redirect_to groups_assign_path
   end
 
   def assign
+    user_input = params[:address]
+    user_input.delete("apartment")
+    group_id = find_group_id(user_input)
+
     user = current_user
 
-    group = find_group(params[:address])
 
-    user.group_id = group.id
-
-    if user.save
-      redirect_to group_path(group)
-    else
-      flash[:now] = "We couldn't assign you to a building!"
+    if group_id.nil?
+      flash[:now] = "We couldn't find your building. Can you be more specific?"
       render :inquire
+    else
+      flash[:success] = "Welcome to #{user.group.name}"
+      user.update({group_id: group_id})
+      redirect_to root_path
     end
   end
 
@@ -29,9 +32,14 @@ class GroupsController < ApplicationController
 
   private
 
-  def find_group(address_hash)
-    normalized_address_params = normalize_address_params(params[:address])
-    Group.find_or_create_by(normalized_address_params)
+  def find_group_id(address_hash)
+    normalized_address_params = normalize_address_params(address_hash)
+
+    if normalized_address_params.nil?
+      nil
+    else
+      Group.find_or_create_by(normalized_address_params).id
+    end
   end
 
   def normalize_address_params(address_hash)
@@ -47,7 +55,12 @@ class GroupsController < ApplicationController
 
     results = JSON.parse(api_response.body)
 
-    clean_results(results.first["components"])
+    if results.empty?
+      nil
+    else
+      clean_results(results.first["components"])
+    end
+
   end
 
   def clean_results(hash)
