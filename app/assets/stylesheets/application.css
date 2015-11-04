@@ -198,7 +198,6 @@ footer {
 
 .request-content {
   font-weight: 300;
-  border-top: 2px solid #ccc;
   margin: 1em;
   padding-top: 1em;
   text-align: center;
@@ -208,5 +207,7 @@ footer {
 
 .req-summary {
   margin-top: 1em;
+  border-bottom: 1px solid #ccc;
+  font-size: .8em ;
 }
 
