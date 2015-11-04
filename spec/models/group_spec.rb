@@ -21,4 +21,15 @@ describe Group do
       expect(group.name).to eq("#{group.primary_number} #{group.street_name} #{group.street_suffix}")
     end
   end
+
+  context "#create" do
+    let (:minimum_group_attributes) { FactoryGirl.attributes_for :group }
+
+    it "should save if a value for street suffix is provided" do
+      expect{
+        attributes = minimum_group_attributes.merge({street_suffix: "Street"})
+        Group.create(attributes)
+      }.to change{Group.count}.by(1)
+    end
+  end
 end
