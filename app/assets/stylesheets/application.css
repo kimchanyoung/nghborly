@@ -155,7 +155,9 @@ position: absolute;
 }
 
 .neighbor-summary {
-  margin-top: 1em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  border-bottom: 1px solid #dbdbdb;
 }
 
 
@@ -194,4 +196,9 @@ position: absolute;
   padding-top: 1em;
   text-align: center;
   list-style: none;
+}
+
+.user-summary-info {
+  font-size: 1.5em;
+  padding-top: 2.5%;
 }
