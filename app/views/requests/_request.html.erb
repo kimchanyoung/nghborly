@@ -1,6 +1,7 @@
 <li class="request" data-id="<%= request.id %>">
 
   <p class="content">
+    <%= image_tag(request.requester.picture, class:"profpic", height:"80", width:"80", align:"left") %>
     <%= request.requester.first_name %> said: "<%= request.content %>"
     <%= time_ago_in_words(request.created_at) %> ago.
   </p>
