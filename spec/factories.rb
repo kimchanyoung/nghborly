@@ -37,4 +37,9 @@ FactoryGirl.define do
     association :candidate
     value { [1, -1].sample }
   end
+
+  factory :transaction do
+    association :request
+    transaction_type { %w(request response fulfillment).sample }
+  end
 end
