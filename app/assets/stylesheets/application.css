@@ -46,7 +46,6 @@ td {
 }
 */
 
-
 .intro-text {
   text-align: center;
   margin: 1em;
@@ -75,6 +74,10 @@ td {
 }
 
 .login-btn {
+  margin: 1em;
+}
+
+.request-btn {
   margin: 1em;
 }
 
@@ -124,7 +127,7 @@ footer {
   border-top: 2px solid #ccc;
   margin: 1em;
   padding-top: 1em;
-  font-weight: 200;
+  font-weight: 300;
   max-height: 20px;
 }
 
@@ -169,14 +172,16 @@ position: absolute;
   margin-top: 2em;
 }
 
-.request {
+.requests {
   list-style: none;
   text-align: center;
 }
 
-p.content {
-  font-weight: 200;
+.content {
+  font-weight: 300;
   border-top: 2px solid #ccc;
   margin: 1em;
   padding-top: 1em;
+  text-align: center;
+  list-style: none;
 }
