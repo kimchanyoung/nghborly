@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email, null: false
       t.integer :group_id
       t.integer :vote_count, null: false, default: 0
-      t.string :picture, default: "http://www.gravatar.com/avatar/?s=60&d=identicon"
+      t.string :picture, default: "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
 
       t.timestamps null: false
     end
