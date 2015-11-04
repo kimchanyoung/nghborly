@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
+ *= require font-awesome
  */
 
 .vote-deets {
@@ -30,7 +30,7 @@ td {
 .up {
     width: 32px;
     height: 32px;
-    -ms-transform: rotate(180deg);  IE 9
+    -ms-transform: rotate(180deg);/*  IE 9*/
     -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
     transform: rotate(180deg);
 }
@@ -62,7 +62,6 @@ td {
 .river-btn {
   margin: 0px;
   padding: 0px;
-  border-right, border-top, border-left: 1px solid #87abfd;
   background-color: white;
   color: black;
 }
@@ -186,5 +185,3 @@ position: absolute;
   text-align: center;
   list-style: none;
 }
-
-

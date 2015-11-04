@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'mandrill-api'
 
 gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug'
