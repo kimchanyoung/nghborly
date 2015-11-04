@@ -27,9 +27,9 @@
 
           <section class="top-bar-section">
             <ul class="right">
-              <li class="active nav-link"><a href="#">Profile</a></li>
-              <li class="active nav-link"><a href="#">My neighbors</a></li>
-              <li class="active nav-link"><a href='/logout'>Log out</a></li>
+              <li class="active nav-link"><%= link_to 'Profile', user_path(current_user) %></li>
+              <li class="active nav-link"><%= link_to 'My neighborhood', group_path(current_user.group) %></li>
+              <li class="active nav-link"><%= link_to 'Log out', logout_path %></li>
             </ul>
           </section>
         </nav>

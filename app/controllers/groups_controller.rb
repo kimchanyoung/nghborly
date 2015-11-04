@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
 
     user = current_user
 
+
     if group_id.nil?
       flash[:now] = "We couldn't find your building. Can you be more specific?"
       render :inquire
@@ -22,6 +23,11 @@ class GroupsController < ApplicationController
       user.update({group_id: group_id})
       redirect_to root_path
     end
+  end
+
+  def show
+    @group = Group.find_by(id: params[:id])
+    @users = @group.users
   end
 
   private
