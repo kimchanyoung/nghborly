@@ -78,6 +78,15 @@ describe Request do
 
     context "request has a neighbor" do
       let(:request) { FactoryGirl.create(:request_with_neighbor) }
+
+      it "should return false if the user is not responder or requester" do
+        expect(request.can_view?(user)).to be false
+      end
+
+      it "should return true if the user is responder or requester" do
+        request = FactoryGirl.create(:request_with_neighbor, requester_id: user.id)
+        expect(request.can_view?(user)).to be true
+      end
     end
   end
 end
