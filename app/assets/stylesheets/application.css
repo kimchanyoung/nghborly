@@ -172,6 +172,7 @@ footer {
   list-style: none;
 }
 
+
 .req-summary {
   padding-top: .5em;
   padding-bottom: .5em;
@@ -200,4 +201,8 @@ footer {
 .vote-btn {
   margin-top: 1em;
   margin-bottom: 1em;
+
+.user-summary-info {
+  font-size: 1.5em;
+  padding-top: 2.5%;
 }
