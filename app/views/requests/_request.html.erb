@@ -4,7 +4,7 @@
   <div class='small-12 small-centered text-center columns'>
     <ul class='request-content'>
     <%= image_tag(request.requester.picture, class:"profpic", height:"80", width:"80", align:"left") %>
-    <%= request.requester.first_name %> said: "<%= request.content %>"
+    <%= link_to request.requester.first_name, user_path(request.requester) %> said: "<%= request.content %>"
     <%= time_ago_in_words(request.created_at) %> ago.
   <% if request.responder != nil %>
     <li><strong> <%= link_to request.responder.first_name, user_path(request.responder) %> has responded to the request!</li></strong>
