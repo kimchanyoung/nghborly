@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.2'
+
 gem 'pusher'
 
 gem 'rails', '4.2.4'
@@ -17,7 +19,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'omniauth', '~> 1.2'
 gem 'omniauth-auth0', '~> 1.1'
 
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -30,6 +32,12 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'dotenv-rails'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'poltergeist'
 end
 
 group :development do
@@ -38,9 +46,4 @@ group :development do
   gem 'spring'
 end
 
-group :test do
-  gem 'factory_girl_rails'
-  gem 'shoulda-matchers'
-  gem 'capybara'
-  gem 'simplecov', require: false
-end
+gem 'simplecov', require: false, group: :test
