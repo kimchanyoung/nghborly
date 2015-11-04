@@ -3,9 +3,7 @@
   <div class='row'>
   <div class='small-12 small-centered text-center columns'>
     <ul class='request-content'>
-    <div class='small-4 large-2 small-left column'>
     <%= image_tag(request.requester.picture, class:"profpic", height:"80", width:"80", align:"left") %>
-    </div>
     <%= request.requester.first_name %> said: "<%= request.content %>"
     <%= time_ago_in_words(request.created_at) %> ago.
   <% if request.responder != nil %>
@@ -18,7 +16,7 @@
   </div>
 
   <div class='row'>
-  <div class='small-2 small-centered columns'>
+  <div class='small-4 small-centered columns'>
   <% if !request.is_fulfilled %>
     <% if request.requester == current_user && request.responder == nil %>
       <%= button_to "Cancel Request", request, class: 'button alert tiny round request-btn', method: 'delete' %>
