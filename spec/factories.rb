@@ -18,7 +18,7 @@ FactoryGirl.define do
   factory :request do
     content { Faker::Lorem.paragraph }
     association :requester
-    group_id requester.id
+    association :group
 
     trait :has_neighbor do
       association :responder
