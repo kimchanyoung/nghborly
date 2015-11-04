@@ -5,12 +5,24 @@
   </div>
 <% end %>
 
+<i class="fi-[torsos-all]"></i>
 <%= render 'requests/new_request_form', request: Request.new %>
 <div class='row collapse'>
   <ul class='button-group even-3 small-12 columns river-nav'>
-    <li><%= button_to 'Community', river_path, {method: 'get', form_class: "river-form", class: 'small button river-btn'} %></li>
-    <li><%= button_to 'Active', active_path, {method: 'get', form_class: "river-form", class: 'small button river-btn'} %></li>
-    <li><%= button_to 'History', history_path, {method: 'get', form_class: "river-form", class: 'small button river-btn'} %></li>
+    <li>
+      <%= button_to river_path, {method: 'get', form_class: "river-form", class: 'small button river-btn'} do %>
+        <i class="fa fa-rss fa-lg"></i>
+      <% end %>
+    </li>
+    <li>
+      <%= button_to active_path, {method: 'get', form_class: "river-form", class: 'small button river-btn'} do %>
+        <i class='fa fa-commenting-o fa-lg'></i>
+      <% end %></li>
+    <li>
+      <%= button_to history_path, {method: 'get', form_class: "river-form", class: 'small button river-btn'} do %>
+        <i class='fa fa-history fa-lg'></i>
+      <% end %>
+    </li>
   </ul>
 </div>
 
