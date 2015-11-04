@@ -12,3 +12,5 @@
 !/log/.keep
 /tmp
 .env
+/coverage
+.ruby-gemset
