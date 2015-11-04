@@ -1,14 +1,19 @@
 <div class='row'>
 <div class='small-12 small-centered text-center columns'>
-<h1><p><%= @user.first_name %>'s Profile</p></h1>
-
+<p class="user-header"><%= @user.first_name %>'s Profile</p>
 <img class="profpic" width="150" height="150" src="<%= @user.picture %>" alt="<%= @user.first_name %>">
+</div>
+</div>
 
-<h3><p><%= @user.first_name %>'s Good Nghbor Points: <%= @user.vote_count %></p></h3>
+<div class='row'>
+<div class='small-12 small-centered text-center columns'>
+<p class='sub-userheader'><%= @user.first_name %>'s Good Nghbor Points: <%= @user.vote_count %></p>
+<p class='sub-userheader'><%= @user.first_name %>'s Recent Activity:</p>
+</div>
+</div>
 
-<h3><p><%= @user.first_name %>'s Recent Activity:</p></h3>
-
-<div id='river'>
+<div id='row'>
+<div id 
 <ul id='my-transactions'>
 </ul>
 </div>
