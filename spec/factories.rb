@@ -28,7 +28,12 @@ FactoryGirl.define do
       is_fulfilled true
     end
 
+    trait :created_one_day_ago do
+      created_at { 1.day.ago }
+    end
+
     factory :request_with_neighbor, traits: [:has_neighbor]
     factory :fulfilled_request , traits: [:has_neighbor, :is_fulfilled]
+    factory :day_old_request, traits: [:created_one_day_ago]
   end
 end
