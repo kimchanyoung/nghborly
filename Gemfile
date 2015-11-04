@@ -19,6 +19,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'omniauth', '~> 1.2'
 gem 'omniauth-auth0', '~> 1.1'
 
+gem 'faker'
 gem 'rails_12factor', group: :production
 
 gem 'sdoc', '~> 0.4.0', group: :doc
