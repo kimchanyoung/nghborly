@@ -155,13 +155,9 @@ position: absolute;
 }
 
 .neighbor-summary {
-  margin: 1em;
+  margin-top: 1em;
 }
 
-.neighborhood-title {
-  font-size: 2em;
-  color: #4D6BB0;
-}
 
 .move-neighborhoods {
   margin-top: 2em;
@@ -172,6 +168,20 @@ position: absolute;
   margin-top: 2em;
 }
 
+.neighborhood-header {
+  padding-top: 3em;
+  padding-bottom: 3em;
+  border: 1px solid black;
+  background-image: url('apt-small.png');
+  background-size: contain;
+  background-position: center center;
+}
+
+.neighborhood-title {
+  font-size: 1.5em;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 .requests {
   list-style: none;
   text-align: center;
