@@ -124,17 +124,17 @@ footer {
   background: white;
   color: #333;
   border-top: 2px solid #ccc;
-  margin: 1em;
+  margin: 1em top;
   padding-top: 1em;
   font-weight: 300;
   max-height: 20px;
 }
 
 .top-bar.expanded {
-overflow:visible;
+  overflow:visible;
 }
 .top-bar-section ul {
-position: absolute;
+  position: absolute;
 }
 
 .nav-link {
@@ -184,9 +184,16 @@ position: absolute;
   color: white;
   text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
 }
+
+.user-summary-info {
+  font-size: 1.5em;
+  padding-top: 2.5%;
+}
+
 .requests {
   list-style: none;
   text-align: center;
+  margin-top: 1em;
 }
 
 .request-content {
@@ -198,12 +205,8 @@ position: absolute;
   list-style: none;
 }
 
-.user-summary-info {
-  font-size: 1.5em;
-  padding-top: 2.5%;
-}
 
-.request-summary {
+.req-summary {
   margin-top: 1em;
 }
 
