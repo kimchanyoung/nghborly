@@ -93,14 +93,32 @@
 }
 
 .transactions {
-  list-style: none;
-  text-align: center;
-  background: white;
-  color: #333;
-  border-top: 2px solid #ccc;
+  border-top: 1px solid #ccc;
   margin: 1em top;
   padding-top: 1em;
-  max-height: 20px;
+}
+
+.requests {
+  border-top: 1px solid #ccc;
+  margin: 1em top;
+  padding-top: 1em;
+}
+
+.transaction {
+  padding-top: .5em;
+  padding-bottom: .5em;
+  border-bottom: 1px solid #ccc;
+  font-size .9em;
+}
+
+.request {
+}
+
+.req-summary {
+  padding-top: .5em;
+  padding-bottom: .5em;
+  border-bottom: 1px solid #ccc;
+  font-size: .9em ;
 }
 
 .user-transactions {
@@ -183,27 +201,6 @@
   font-size: 1em;
   color: #87abfd;
   margin: 1em;
-}
-
-.requests {
-  list-style: none;
-  text-align: center;
-  margin-top: 1em;
-}
-
-.request {
-  font-weight: 300;
-  text-align: center;
-  list-style: none;
-  width: auto;
-}
-
-
-.req-summary {
-  padding-top: .5em;
-  padding-bottom: .5em;
-  border-bottom: 1px solid #ccc;
-  font-size: .8em ;
 }
 
 .request-show-msg {
