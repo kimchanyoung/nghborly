@@ -43,9 +43,16 @@
   var channel = pusher.subscribe('presence-<%= current_user.group_id %>');
 
   channel.bind("new_transaction", function(data) {
-    var element = '<li>' + data.content + '</li>';
+    var element = '';
 
-    $('#group-transactions').prepend(element);
+    element += '<li><img class="profpic" height="80" width="80" align="left" src="';
+    element += data.src + '" alt="Photo"><a href="' + data.requester_link;
+    element += '">' + data.requester_first_name + '</a> ' + data.request_text;
+    element += ' ' + data.time;
+
+    debugger;
+
+    $('#transactions').prepend(element);
 
     if (data.user_id === <%= current_user.id %>) {
       $('#my-transactions').prepend(element);
