@@ -1,47 +1,68 @@
-<li class="request" data-id="<%= request.id %>">
+<div class="request" data-id="<%= request.id %>">
 
   <div class='row'>
-  <ul class='request-content'>
-  <div class='small-3 small-left columns'>
-    <%= image_tag(request.requester.picture, class:"profpic", height:"80", width:"80") %>
-  </div>
-  <div class='small-9 small-centered text-center columns'>
-    <%= link_to request.requester.first_name, user_path(request.requester) %> said: "<%= request.content %>"
-    <%= time_ago_in_words(request.created_at) %> ago.
- 
-  <% if request.responder != nil %>
-    <li><strong> <%= link_to request.responder.first_name, user_path(request.responder) %> has responded to the request!</li>
-    </strong>
-  <% end %>
-  <% if request.is_fulfilled %>
-    <li><strong> <%= link_to request.responder.first_name, user_path(request.responder) %> has fulfilled <%= link_to request.requester.first_name, user_path(request.requester) %>'s request!</li>
-    </strong>
-  <% end %>
-  </div>
-  </div>
-  </ul>
-  </div>
+    <div class='small-12 small-centered text-center columns'>
+      <%= image_tag(request.requester.picture, class:"profpic") %>
+    </div>
   </div>
 
   <div class='row'>
-  <div class='small-9 small-centered text-center columns'>
-  <% if !request.is_fulfilled %>
-    <% if request.requester == current_user && request.responder == nil %>
-      <%= button_to "Cancel Request", request, class: 'button alert tiny round request-btn', method: 'delete' %>
-    <% elsif request.responder == nil && current_user != request.requester %>
-      <%= button_to 'Be a neighbor!', request, class: 'button success tiny round request-btn', method: 'patch' %>
-    <% elsif request.responder != nil && current_user == request.requester %>
-      <%= button_to 'Request fulfilled!', request, class: 'button tiny round request-btn', method: 'patch' %>
+    <div class='small-12 small-centered text-center columns request-show-msg'>
+      <%= link_to request.requester.first_name, user_path(request.requester) %> said: "<%= request.content %>"
+    </div>
+  </div>
+  <div class='row'>
+    <div class='small-12 small-centered text-center columns request-show-submsg'>
+      <%= time_ago_in_words(request.created_at) %> ago
+    </div>
+  </div>
+
+  <div class='row'>
+    <% if request.responder != nil %>
+      <div class='small-12 small-centered text-center columns request-show-msg'><strong>
+        <%= link_to request.responder.first_name, user_path(request.responder) %> has responded to the request.
+      </div></strong>
     <% end %>
-    </div>
-    </div>
+  </div>
 
-    <div class='row'>
-    <div class='small-9 small-centered text-center columns'>
-    <% unless request.responder.nil? %>
-      <%= link_to "Initiate Chat", request_messages_path(request, anchor: 'bottom') %>
+  <div class='row'>
+    <% if request.is_fulfilled %>
+      <div class='small-12 small-centered text-center columns request-show-msg'>
+        <%= link_to request.responder.first_name, user_path(request.responder) %> has fulfilled <%= link_to request.requester.first_name, user_path(request.requester) %>'s request!
       </div>
     <% end %>
+  </div>
+
+  <% if !request.is_fulfilled %>
+    <% if request.requester == current_user && request.responder == nil %>
+      <div class='row'>
+        <div class='small-8 text-center small-centered columns'>
+          <%= button_to "Cancel Request", request, class: 'button alert tiny round request-btn', method: 'delete' %>
+        </div>
+      </div>
+    <% elsif request.responder == nil && current_user != request.requester %>
+      <div class='row'>
+        <div class='small-8 text-center small-centered columns'>
+          <%= button_to 'Be a neighbor!', request, class: 'button success tiny round request-btn', method: 'patch' %>
+        </div>
+      </div>
+    <% elsif request.responder != nil %>
+      <div class='row'>
+        <div class='small-12 text-center columns'>
+          <%= link_to "Initiate Chat", request_messages_path(request, anchor: 'bottom'), class: 'button medium round success chat-btn' %>
+        </div>
+      </div>
+      <% if current_user == request.requester %>
+        <div class='row'>
+          <div class='small-8 text-center small-centered columns'>
+            <%= button_to 'Request fulfilled!', request, class: 'button tiny round request-btn', method: 'patch' %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   <% end %>
-</li>
+  </div>
+  <% if request.responder && request.can_be_voted_on_by(current_user) %>
+    <%= render partial: "votes/vote_form", locals: {request_obj: @request} %>
+  <% end %>
 </div>
