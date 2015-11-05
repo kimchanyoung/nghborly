@@ -1,6 +1,15 @@
 <div class='row'>
-  <div class='small-12 text-center columns neighborhood-title'>
-    meet your nghbors!
+  <div class='small-12 columns neighborhood-header'>
+    <div class='row'>
+      <div class='small-10 text-center small-centered columns neighborhood-title'>
+        The neighbors of
+      </div>
+    </div>
+    <div class='row'>
+      <div class='small-10 text-center small-centered columns neighborhood-title'>
+        <%= @group.name %>
+      </div>
+    </div>
   </div>
 </div>
 <% @users.each do |user| %>

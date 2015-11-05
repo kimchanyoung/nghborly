@@ -47,9 +47,9 @@ describe GroupsController do
         expect(flash[:success]).to eq("Welcome to #{group.name}")
       end
 
-      it "should redirect to root_path" do
+      it "should redirect to user's group's path" do
         post :assign, { address: "123 Main Street" }
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(group_path(user.group))
       end
     end
 
