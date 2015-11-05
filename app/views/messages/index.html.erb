@@ -19,18 +19,19 @@
 </div>
 <div id="chat-window" class='row'>
   <div class='small-12 columns'>
-    <ul id="messages">
+    <div id="messages">
       <% @messages.each do |message| %>
         <div class='row'>
           <div class='small-2 columns'>
-            <%= image_tag(message.sender.picture) %>
+            <%= image_tag(message.sender.picture, class: 'msg-img') %>
           </div>
-          <div class='small-10 columns msg data-id="<%= message.id %>"'>
+          <div class='small-9 columns msg' data-id="<%= message.id %>">
             <%= message.content %>
           </div>
+          <div class='small-1'></div>
         </div>
       <% end %>
-    </ul>
+    </div>
     <div class='msg-buffer' id='bottom'></div>
   </div>
 </div>
