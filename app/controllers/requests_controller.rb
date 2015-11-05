@@ -82,7 +82,7 @@ class RequestsController < UserActionsController
   end
 
   def active
-    @requests = Request.order('created_at DESC').limit(25).select{ |req| req.active? }
+    @requests = Request.order('created_at DESC').limit(25).select{ |req| req.active? && req.group == current_user.group }
 
     if request.xhr?
       render 'requests/index.html.erb', layout: false
