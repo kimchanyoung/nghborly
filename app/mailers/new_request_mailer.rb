@@ -2,7 +2,7 @@ class NewRequestMailer < BaseMandrillMailer
   def notify(request, user)
     subject = "#{request.requester.first_name} needs a neighbor!"
     merge_vars = {
-      "REQUEST_URL" => "nghbor-ly.herokuapp.com/requests/#{request.id}",
+      "REQUEST_URL" => "nghbor-ly.herokuapp.com/request/#{request.id}",
       "REQUEST_CONTENT" => request.content,
       "REQUESTER_FNAME" => request.requester.first_name,
       "FIRST_NAME" => user.first_name
