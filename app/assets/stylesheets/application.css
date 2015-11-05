@@ -75,6 +75,7 @@
     background-color: white;
 }
 
+
 .msg {
   display:block;
   list-style: none;
@@ -240,4 +241,19 @@
 .msg-title {
   margin-bottom: 1em;
   padding: .1em;
+}
+
+.footer {
+    display: block;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    font-size: .7em;
+    background-color: #87abfd;
+    text-align: center;
+    color: white;
+}
+
+.site-buffer {
+  height: 8em;
 }
