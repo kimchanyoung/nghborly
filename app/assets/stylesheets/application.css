@@ -83,7 +83,6 @@ footer {
   border-radius: 50%
 }
 
-
 .msg-buffer {
   height: 70px;
 }
@@ -104,9 +103,9 @@ footer {
   text-align: center;
   background: white;
   color: #333;
-  border-bottom: 2px solid #ccc;
-  margin: 3em top;
-  padding-top: 3em;
+  border-top: 2px solid #ccc;
+  padding-bottom: 4em;
+  padding-top: 2em;
   max-height: 20px;
 }
 
@@ -170,10 +169,15 @@ footer {
   padding-top: 2.5%;
 }
 
-.user-header {
-  padding-bottom: 1em;
-  background-size: contain;
-  background-position: center center;
+.user-title {
+  font-size: 2em;
+  color: #87abfd;
+}
+
+.sub-userheader {
+  font-size: 1em;
+  color: #87abfd;
+  margin: 1em;
 }
 
 .requests {
