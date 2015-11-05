@@ -38,10 +38,7 @@ class Transaction < ActiveRecord::Base
 
   def trigger_request_message(request)
     Pusher["presence-#{request.group.id}"].trigger('new_transaction', {
-      class: 'profpic',
-      height: '100',
-      width: '100',
-      align: 'left',
+      type: self.transaction_type,
       src: request.requester.picture,
       request_text: request_text,
       requester_link: "/users/#{request.requester.id}",
