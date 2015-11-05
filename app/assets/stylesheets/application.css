@@ -46,6 +46,11 @@
   margin: 1em;
 }
 
+.info-box {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
 .request-btn {
   margin: 1em;
 }
