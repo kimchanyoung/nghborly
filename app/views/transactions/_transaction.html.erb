@@ -1,13 +1,31 @@
 <% if transaction.transaction_type == 'request' %>
 <% request_text = ['cried out for help', 'sent an SOS', 'made a request', 'shouted for aid', 'sent out a smoke signal', 'pinged neighbors', 'lit the beacons'] %>
-<%= image_tag(transaction.request.requester.picture, class:"profpic", height:"80", width:"80", align:"left") %>
+<div class='row'>
+<div class='small-3 small-left text-center column'>
+<%= image_tag(transaction.request.requester.picture, class:"profpic", height:"80", width:"80") %>
+</div>
+<div class='small-9 small-centered text-center column'>
 <%= link_to transaction.request.requester.first_name, user_path(transaction.request.requester) %> <%= request_text.sample %> <%= time_ago_in_words(transaction.created_at) %> ago.
+</div>
+</div>
 <% elsif transaction.transaction_type == 'response' %>
-<%= image_tag(transaction.request.requester.picture, class:"profpic", height:"100", width:"100", align:"left") %>
+<div class='row'>
+<div class='small-3 small-left text-center column'>
+<%= image_tag(transaction.request.requester.picture, class:"profpic", height:"80", width:"80") %>
+</div>
+<div class='small-9 small-centered text-center column'>
 <%= link_to transaction.request.responder.first_name, user_path(transaction.request.responder) %> responded to <%= link_to transaction.request.requester.first_name, user_path(transaction.request.requester) %>'s request <%= time_ago_in_words(transaction.created_at) %> ago!
+</div>
+</div>
 <% elsif transaction.transaction_type == 'fulfillment' %>
-<%= image_tag(transaction.request.requester.picture, class:"profpic", height:"100", width:"100", align:"left") %>
+<div class='row'>
+<div class='small-3 small-left text-center column'>
+<%= image_tag(transaction.request.requester.picture, class:"profpic", height:"80", width:"80") %>
+</div>
+<div class='small-9 small-centered text-center column'>
 <%= link_to transaction.request.responder.first_name, user_path(transaction.request.responder) %> fulfilled <%= link_to transaction.request.requester.first_name, user_path(transaction.request.requester) %>'s request <%= time_ago_in_words(transaction.created_at) %> ago!
 <% else %>
 <% end %>
+</div>
+</div>
 
