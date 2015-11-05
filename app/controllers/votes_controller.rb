@@ -1,4 +1,4 @@
-class VotesController < ApplicationController
+class VotesController < UserActionsController
   def create
     @vote = Vote.new(vote_params)
     if @vote.save
