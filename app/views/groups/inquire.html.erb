@@ -1,3 +1,10 @@
+<% if flash[:alert] %>
+  <div data-alert class="alert-box alert radius">
+    <%= flash[:alert] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
 <div class="row">
   <div class='small-8 small-centered text-center column'>
     <h4>Hi <%= current_user.first_name %>!</h4>
