@@ -6,7 +6,7 @@ class Group < ActiveRecord::Base
             :zipcode, presence: true
 
   def name
-    "#{primary_number} #{street_name} #{street_suffix}"
+    "#{primary_number} #{street_predirection} #{street_name} #{street_suffix}"
   end
 
 end
