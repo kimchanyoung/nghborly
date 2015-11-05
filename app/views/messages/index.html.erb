@@ -18,20 +18,20 @@
   <footer>
     <div id="message-input fixed">
       <%= form_for [@request, @message] do |f| %>
-      <div class='row'>
-        <div class='small-9 columns'>
-          <div class="field">
-            <%= f.text_field :content %>
+        <div class='row'>
+          <div class='small-9 columns'>
+            <div class="field">
+              <%= f.text_field :content %>
+            </div>
           </div>
-        </div>
 
-        <div class='small-3 columns'>
-          <div class="actions">
-            <%= f.submit "Send", class: 'button tiny' %>
+          <div class='small-3 columns'>
+            <div class="actions">
+              <%= f.submit "Send", class: 'button tiny' %>
+            </div>
           </div>
         </div>
       <% end %>
-    </div>
     </div>
   </footer>
 <% end %>

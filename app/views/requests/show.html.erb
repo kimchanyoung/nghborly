@@ -1,14 +1,5 @@
-<% if flash[:alert] %>
-  <div data-alert class="alert-box alert radius">
-    <%= flash[:alert] %>
-    <a href="#" class="close">&times;</a>
-  </div>
-<% end %>
+
 
 <%= render @request %>
 
-<% if @request.is_fulfilled %>
-  <div class="vote-details">
-    <%= render partial: "votes/vote_form", locals: {request_obj: @request} %>
-  </div>
-<% end %>
+

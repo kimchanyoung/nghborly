@@ -1,5 +1,5 @@
 <% if transaction.transaction_type == 'request' %>
-<% request_text = ['cried out for help', 'sent an SOS', 'made a request', 'shouted for aid', 'sent out a smoke signal', 'pinged neighbors', 'lit the beacons']
+<% request_text = ['cried out for help', 'sent an SOS', 'made a request', 'shouted for aid', 'sent out a smoke signal', 'pinged neighbors', 'lit the beacons'] %>
 <%= image_tag(transaction.request.requester.picture, class:"profpic", height:"80", width:"80", align:"left") %>
 <%= link_to transaction.request.requester.first_name, user_path(transaction.request.requester) %> <%= request_text.sample %> <%= time_ago_in_words(transaction.created_at) %> ago.
 <% elsif transaction.transaction_type == 'response' %>

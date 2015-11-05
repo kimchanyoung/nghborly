@@ -45,7 +45,7 @@
   channel.bind("new_transaction", function(data) {
     var element = '<li>' + data.content + '</li>';
 
-    $('#group-transactions').append(element);
+    $('#group-transactions').prepend(element);
 
     if (data.user_id === <%= current_user.id %>) {
       $('#my-transactions').prepend(element);
