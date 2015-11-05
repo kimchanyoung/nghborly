@@ -1,7 +1,7 @@
 class TransactionsController < UserActionsController
 
   def river
-    @transactions = Transaction.sort_by_group(current_user.group).limit(25)
+    @transactions = Transaction.sort_by_group(current_user.group).limit(25).order("created_at desc")
 
     if request.xhr?
       render 'transactions/index.html.erb', layout: false
@@ -11,7 +11,7 @@ class TransactionsController < UserActionsController
   end
 
   def history
-    @transactions = Transaction.sort_by_user(current_user).limit(25)
+    @transactions = Transaction.sort_by_user(current_user).limit(25).order("created_at desc")
     if request.xhr?
       render 'transactions/index.html.erb', layout: false
     else

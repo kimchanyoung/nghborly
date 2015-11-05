@@ -16,36 +16,6 @@
  *= require font-awesome
  */
 
-.vote-deets {
-  float: left;
-  width: 32px;
-  margin: 1% 2% 0% 0%;
-  text-align: center
-}
-
-td {
-  text-align: center;
-}
-
-.up {
-    width: 32px;
-    height: 32px;
-    -ms-transform: rotate(180deg);/*  IE 9*/
-    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-    transform: rotate(180deg);
-}
-
-.down {
-  width: 32px;
-  height: 32px;
-}
-
-/*.vote-table {
-  position: relative;
-  top: -15px;
-}
-*/
-
 .intro-text {
   text-align: center;
   margin: 1em;
@@ -124,17 +94,17 @@ footer {
   background: white;
   color: #333;
   border-top: 2px solid #ccc;
-  margin: 1em;
+  margin: 1em top;
   padding-top: 1em;
   font-weight: 300;
   max-height: 20px;
 }
 
 .top-bar.expanded {
-overflow:visible;
+  overflow:visible;
 }
 .top-bar-section ul {
-position: absolute;
+  position: absolute;
 }
 
 .nav-link {
@@ -184,21 +154,30 @@ position: absolute;
   color: white;
   text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
 }
+
+.user-summary-info {
+  font-size: 1.5em;
+  padding-top: 2.5%;
+}
+
 .requests {
   list-style: none;
   text-align: center;
+  margin-top: 1em;
 }
 
 .request-content {
   font-weight: 300;
-  border-top: 2px solid #ccc;
   margin: 1em;
   padding-top: 1em;
   text-align: center;
   list-style: none;
 }
 
-.user-summary-info {
-  font-size: 1.5em;
-  padding-top: 2.5%;
+
+.req-summary {
+  margin-top: 1em;
+  border-bottom: 1px solid #ccc;
+  font-size: .8em ;
 }
+

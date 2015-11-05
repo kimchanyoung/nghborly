@@ -1,18 +1,17 @@
-<li class="request" data-id="<%= request.id %>">
+<div class="request" data-id="<%= request.id %>">
 
   <div class='row'>
   <div class='small-12 small-centered text-center columns'>
-    <ul class='request-content'>
-    <%= image_tag(request.requester.picture, class:"profpic", height:"80", width:"80", align:"left") %>
+    <div class='request-content'>
+    <%= image_tag(request.requester.picture, class:"profpic") %>
     <%= link_to request.requester.first_name, user_path(request.requester) %> said: "<%= request.content %>"
     <%= time_ago_in_words(request.created_at) %> ago.
-  <% if request.responder != nil %>
-    <li><strong> <%= link_to request.responder.first_name, user_path(request.responder) %> has responded to the request!</li></strong>
-  <% end %>
-  <% if request.is_fulfilled %>
-    <li> <%= link_to request.responder.first_name, user_path(request.responder) %> has fulfilled <%= link_to request.requester.first_name, user_path(request.requester) %>'s request!</li>
-  <% end %>
-  </ul>
+    <% if request.responder != nil %>
+      <div><strong> <%= link_to request.responder.first_name, user_path(request.responder) %> has responded to the request!</div></strong>
+    <% end %>
+    <% if request.is_fulfilled %>
+      <div> <%= link_to request.responder.first_name, user_path(request.responder) %> has fulfilled <%= link_to request.requester.first_name, user_path(request.requester) %>'s request!</div>
+    <% end %>
   </div>
 
   <div class='row'>
@@ -30,10 +29,15 @@
     </div>
 
 
-    <% unless request.responder.nil? %>
-      <%= link_to "Initiate Chat", request_messages_path(request, anchor: 'bottom') %>
+    <% if !request.is_fulfilled %>
+      <div class='row'>
+        <div class='small-12 text-center columns'>
+          <%= link_to "Initiate Chat", request_messages_path(request, anchor: 'bottom'), class: 'button medium round success' %>
+        </div>
+      </div>
+
     <% end %>
   <% end %>
-</li>
+
 
 

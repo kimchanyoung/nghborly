@@ -285,15 +285,15 @@ $header-font-color: $white;
 // $list-font-family: $paragraph-font-family;
 // $list-font-size: $paragraph-font-size;
 // $list-line-height: $paragraph-line-height;
-// $list-margin-bottom: $paragraph-margin-bottom;
+$list-margin-bottom: 0px;
 // $list-style-position: outside;
-// $list-side-margin: 1.1rem;
-// $list-ordered-side-margin: 1.4rem;
-// $list-side-margin-no-bullet: 0;
+$list-side-margin: 0px;
+$list-ordered-side-margin: 0px;
+// $list-side-margin-no-bullet: 0px;
 // $list-nested-margin: rem-calc(20);
 // $definition-list-header-weight: $font-weight-bold;
 // $definition-list-header-margin-bottom: .3rem;
-// $definition-list-margin-bottom: rem-calc(12);
+$definition-list-margin-bottom: 0px;
 
 // We use these to style blockquotes
 // $blockquote-font-color: scale-color($header-font-color, $lightness: 35%);

@@ -1,0 +1,23 @@
+<li class="request" data-id="<%= request.id %>">
+  <div class='row req-summary'>
+    <div class='small-4 columns'>
+      <%= image_tag(request.requester.picture, class:"profpic", height:"80", width:"80", align:"left") %>
+    </div>
+    <div class='small-8 columns'>
+      <div class='row'>
+        <div class='small-12 columns'>
+          <%= link_to request.requester.first_name, user_path(request.requester) %>: "<%= request.content %>"
+        </div>
+      </div>
+      <div class='row'>
+        <div class='small-12 columns'>
+          <% if request.requester == current_user && request.responder == nil %>
+            <%= button_to "Cancel Request", request, class: 'button alert tiny round request-btn', method: 'delete' %>
+          <% elsif request.responder == nil && current_user != request.requester %>
+          <%= button_to 'Be a neighbor!', request, class: 'button success tiny round request-btn', method: 'patch' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
