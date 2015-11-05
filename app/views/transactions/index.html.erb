@@ -1,6 +1,7 @@
 <div class="row">
 <div class="small-12 columns">
 <% @transactions.each do |transaction| %>
+<div class='row'>
 <div class="small-12 columns">
 <ul class='transactions'>
   <li><%= render 'transaction.html.erb', transaction: transaction %></li>
@@ -9,6 +10,6 @@
   </div>
 <% end %>
 </div>
-
+</div>
 
     
