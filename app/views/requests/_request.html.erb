@@ -3,7 +3,7 @@
   <div class='row'>
   <ul class='request-content'>
   <div class='small-3 small-left columns'>
-    <%= image_tag(request.requester.picture, class:"profpic") %>
+    <%= image_tag(request.requester.picture, class:"profpic", height:"80", width:"80") %>
   </div>
   <div class='small-9 small-centered text-center columns'>
     <%= link_to request.requester.first_name, user_path(request.requester) %> said: "<%= request.content %>"
