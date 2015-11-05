@@ -18,7 +18,7 @@ describe Group do
     let(:group) { FactoryGirl.create :group }
 
     it "should returns its name based on its attributes" do
-      expect(group.name).to eq("#{group.primary_number} #{group.street_name} #{group.street_suffix}")
+      expect(group.name).to eq("#{group.primary_number}  #{group.street_name} #{group.street_suffix}")
     end
   end
 
