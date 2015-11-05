@@ -166,18 +166,38 @@ footer {
   margin-top: 1em;
 }
 
-.request-content {
+.request {
   font-weight: 300;
-  margin: 1em;
-  padding-top: 1em;
   text-align: center;
   list-style: none;
 }
 
-
 .req-summary {
-  margin-top: 1em;
+  padding-top: .5em;
+  padding-bottom: .5em;
   border-bottom: 1px solid #ccc;
   font-size: .8em ;
 }
 
+.request-show-msg {
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+.request-show-submsg {
+  font-size: .7em;
+  color: gray;
+}
+
+.chat-btn {
+  margin: 0px;
+}
+
+.vote-field {
+  margin-top: 1em;
+}
+
+.vote-btn {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
