@@ -60,7 +60,7 @@ describe GroupsController do
 
       it "should set a flash[:now] message" do
         post :assign, { address: "123 Main Street" }
-        expect(flash[:now]).to eq("We couldn't find your building. Can you be more specific?")
+        expect(flash[:alert]).to eq("We couldn't find your building. Can you be more specific?")
       end
     end
   end

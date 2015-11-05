@@ -16,7 +16,7 @@ class GroupsController < ApplicationController
 
 
     if group_id.nil?
-      flash[:now] = "We couldn't find your building. Can you be more specific?"
+      flash.now[:alert] = "We couldn't find your building. Can you be more specific?"
       render :inquire
     else
       user.update({group_id: group_id})
