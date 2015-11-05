@@ -42,4 +42,10 @@ FactoryGirl.define do
     association :request
     transaction_type { %w(request response fulfillment).sample }
   end
+
+  factory :message do
+    association :requester
+    association :request
+    content { Faker::Lorem.sentence }
+  end
 end
