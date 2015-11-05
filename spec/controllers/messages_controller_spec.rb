@@ -24,7 +24,7 @@ describe MessagesController do
   context "user is signed in as a party to the message" do
     before(:each) do
       @user = FactoryGirl.create(:user)
-      @request_obj = FactoryGirl.create(:request, requester: @user)
+      @request_obj = FactoryGirl.create(:request_with_neighbor, requester: @user)
       allow_any_instance_of(UserActionsController).to receive(:current_user).and_return(@user)
 
       3.times do
