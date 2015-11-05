@@ -1,4 +1,4 @@
-class VotesController < ApplicationController
+class VotesController < UserActionsController
   before_action :set_request, :verify_association
 
   def create

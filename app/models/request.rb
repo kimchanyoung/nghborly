@@ -25,7 +25,10 @@ class Request < ActiveRecord::Base
   end
 
   def is_party_to?(user)
-    [requester.id, responder.id].include?(user.id)
+    requester_id = requester.id
+    responder_id = has_neighbor? ? responder.id : nil
+
+    [requester_id, responder_id].include?(user.id)
   end
 
   def pretty_date
@@ -34,6 +37,10 @@ class Request < ActiveRecord::Base
 
   def can_be_voted_on_by(user)
     is_party_to?(user) && Vote.find_by(candidate_id: user.id, request_id: id) == nil && is_fulfilled
+  end
+
+  def has_neighbor?
+    !!responder
   end
 
   private
