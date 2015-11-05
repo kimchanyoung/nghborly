@@ -97,7 +97,6 @@ footer {
   margin: 1em top;
   padding-top: 1em;
   max-height: 20px;
-  width: auto;
 }
 
 .user-transactions {
@@ -109,7 +108,6 @@ footer {
   margin: 3em top;
   padding-top: 3em;
   max-height: 20px;
-  width: auto;
 }
 
 .top-bar.expanded {
@@ -224,11 +222,4 @@ footer {
 .user-summary-info {
   font-size: 1.5em;
   padding-top: 2.5%;
-}
-
-.wrapper {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -4em;
 }
