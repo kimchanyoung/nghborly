@@ -10,22 +10,24 @@
 </div>
 
 <% elsif transaction.transaction_type == 'response' %>
+<% response_text = [['heard', 'call'], ['answered', 'request'], ['ran to', 'aid'], ['saw', 'smoke signal'], ['responded to', 'bat signal']].sample %>
 <div class='row transaction'>
   <div class='small-4 text-center column'>
   <%= image_tag(transaction.request.responder.picture, class:"profpic", size: '80') %>
   </div>
   <div class='small-8 text-center column'>
-  <%= link_to transaction.request.responder.first_name, user_path(transaction.request.responder) %> responded to <%= link_to transaction.request.requester.first_name, user_path(transaction.request.requester) %>'s request <%= time_ago_in_words(transaction.created_at) %> ago!
+  <%= link_to transaction.request.responder.first_name, user_path(transaction.request.responder) %> <%= response_text[0] %> <%= link_to transaction.request.requester.first_name, user_path(transaction.request.requester) %>'s <%= response_text[1] %> <%= time_ago_in_words(transaction.created_at) %> ago!
   </div>
 </div>
 
 <% elsif transaction.transaction_type == 'fulfillment' %>
+<% fulfill_text = [['came to', 'rescue'], ['heeded', 'call'], ['saved', 'butt'], ['was', 'hero'], ['became', 'rescuer']].sample %>
 <div class='row transaction'>
   <div class='small-4 text-center column'>
   <%= image_tag(transaction.request.responder.picture, class:"profpic", size: '80') %>
   </div>
   <div class='small-8 text-center column'>
-  <%= link_to transaction.request.responder.first_name, user_path(transaction.request.responder) %> fulfilled <%= link_to transaction.request.requester.first_name, user_path(transaction.request.requester) %>'s request <%= time_ago_in_words(transaction.created_at) %> ago!
+  <%= link_to transaction.request.responder.first_name, user_path(transaction.request.responder) %> <%= fulfill_text[0] %> <%= link_to transaction.request.requester.first_name, user_path(transaction.request.requester) %>'s <%= fulfill_text[1] %> <%= time_ago_in_words(transaction.created_at) %> ago!
   </div>
 </div>
 <% else %>
