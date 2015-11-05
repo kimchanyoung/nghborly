@@ -243,22 +243,17 @@
   padding: .1em;
 }
 
-body {
-    margin-bottom:100px;
-    position: relative; 
-  }
-
-
 .footer {
-    position: absolute;
+    display: block;
     bottom: 0;
-    height: 100px;
-    left: 0;
+    height: auto;
     width: 100%;
+    font-size: .7em;
     background-color: #87abfd;
     text-align: center;
+    color: white;
 }
 
 .site-buffer {
-  height: 40px;
+  height: 8em;
 }
