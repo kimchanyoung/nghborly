@@ -13,7 +13,7 @@ class Request < ActiveRecord::Base
   validates :is_fulfilled, inclusion: { in: [true, false] }
 
   def active?
-    responder.nil? && (Time.now - created_at) <= 2700 && !is_fulfilled
+    responder.nil? && (Time.now - created_at) <= 2700 && !is_fulfilled && group == current_user.group
   end
 
   def can_view?(user)
