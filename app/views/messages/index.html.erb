@@ -1,6 +1,22 @@
 <div id="status">
 </div>
 
+<div class='row'>
+  <div class='small-12 columns'>
+    <%= button_to request_path(@request), {method: 'get', class: 'tiny round button back-btn'} do %>
+        <i class="fa fa-chevron-left fa-lg"></i>
+      <% end %>
+  </div>
+</div>
+<div class='row'>
+  <div class='small-12 text-center columns msg-title'>
+    <% if current_user = @request.requester %>
+      <strong>Chat with <%= @request.responder.first_name %></strong>
+    <% else %>
+      <strong>Chat with <%= @request.requester.first_name %></strong>
+    <% end %>
+  </div>
+</div>
 <div id="chat-window" class='row'>
   <div class='small-12 columns'>
     <ul id="messages">
@@ -15,7 +31,7 @@
 </div>
 
 <% if @request.responder && !@request.is_fulfilled %>
-  <footer>
+  <footer class='msg-input'>
     <div id="message-input fixed">
       <%= form_for [@request, @message] do |f| %>
         <div class='row'>
@@ -27,7 +43,7 @@
 
           <div class='small-3 columns'>
             <div class="actions">
-              <%= f.submit "Send", class: 'button tiny' %>
+              <%= f.submit "Send", class: 'button tiny send-msg' %>
             </div>
           </div>
         </div>

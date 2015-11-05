@@ -46,6 +46,11 @@
   margin: 1em;
 }
 
+.info-box {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
 .request-btn {
   margin: 1em;
 }
@@ -60,7 +65,7 @@
   margin: 1em;
 }
 
-footer {
+.msg-input {
     position: fixed;
     bottom: 0;
     height: 60px;
@@ -75,7 +80,7 @@ footer {
   list-style: none;
   padding: .5em;
   margin: .5em;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 50px;
 }
 
@@ -88,14 +93,32 @@ footer {
 }
 
 .transactions {
-  list-style: none;
-  text-align: center;
-  background: white;
-  color: #333;
-  border-top: 2px solid #ccc;
+  border-top: 1px solid #ccc;
   margin: 1em top;
   padding-top: 1em;
-  max-height: 20px;
+}
+
+.requests {
+  border-top: 1px solid #ccc;
+  margin: 1em top;
+  padding-top: 1em;
+}
+
+.transaction {
+  padding-top: .5em;
+  padding-bottom: .5em;
+  border-bottom: 1px solid #ccc;
+  font-size .9em;
+}
+
+.request {
+}
+
+.req-summary {
+  padding-top: .5em;
+  padding-bottom: .5em;
+  border-bottom: 1px solid #ccc;
+  font-size: .9em ;
 }
 
 .user-transactions {
@@ -180,27 +203,6 @@ footer {
   margin: 1em;
 }
 
-.requests {
-  list-style: none;
-  text-align: center;
-  margin-top: 1em;
-}
-
-.request {
-  font-weight: 300;
-  text-align: center;
-  list-style: none;
-  width: auto;
-}
-
-
-.req-summary {
-  padding-top: .5em;
-  padding-bottom: .5em;
-  border-bottom: 1px solid #ccc;
-  font-size: .8em ;
-}
-
 .request-show-msg {
   margin-top: .5em;
   margin-bottom: .5em;
@@ -222,8 +224,19 @@ footer {
 .vote-btn {
   margin-top: 1em;
   margin-bottom: 1em;
+}
 
 .user-summary-info {
   font-size: 1.5em;
   padding-top: 2.5%;
+}
+
+.back-btn {
+  display: inline;
+  position: fixed;
+  z-index: 1;
+}
+
+.msg-title {
+  margin-bottom: 1em;
 }

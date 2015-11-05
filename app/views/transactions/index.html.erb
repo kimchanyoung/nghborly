@@ -1,15 +1,9 @@
 <div class="row">
-<div class="small-12 columns">
-<% @transactions.each do |transaction| %>
-<div class='row'>
-<div class="small-12 columns">
-<ul class='transactions'>
-  <li><%= render 'transaction.html.erb', transaction: transaction %></li>
-  </ul>
+  <div class="small-12 columns transactions">
+    <% @transactions.each do |transaction| %>
+        <%= render 'transaction.html.erb', transaction: transaction %>
+    <% end %>
   </div>
-  </div>
-<% end %>
-</div>
 </div>
 
-    
+
