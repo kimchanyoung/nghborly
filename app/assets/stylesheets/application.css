@@ -96,7 +96,18 @@ footer {
   border-top: 2px solid #ccc;
   margin: 1em top;
   padding-top: 1em;
-  font-weight: 300;
+  max-height: 20px;
+  width: auto;
+}
+
+.user-transactions {
+  list-style: none;
+  text-align: center;
+  background: white;
+  color: #333;
+  border-bottom: 2px solid #ccc;
+  margin: 3em top;
+  padding-top: 3em;
   max-height: 20px;
   width: auto;
 }
@@ -161,6 +172,12 @@ footer {
   padding-top: 2.5%;
 }
 
+.user-header {
+  padding-bottom: 1em;
+  background-size: contain;
+  background-position: center center;
+}
+
 .requests {
   list-style: none;
   text-align: center;
@@ -207,4 +224,11 @@ footer {
 .user-summary-info {
   font-size: 1.5em;
   padding-top: 2.5%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
 }
