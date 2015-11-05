@@ -43,18 +43,32 @@
   var channel = pusher.subscribe('presence-<%= current_user.group_id %>');
 
   channel.bind("new_transaction", function(data) {
-    var element = '<li>' + data.content + '</li>';
+    var source = $('#transactions-template').html();
+    var template = Handlebars.compile(source);
+    var html = template(data);
 
-    $('#group-transactions').prepend(element);
+    $('.transactions').prepend(html);
 
     if (data.user_id === <%= current_user.id %>) {
-      $('#my-transactions').prepend(element);
+      $('.transactions').prepend(html);
     }
 
   });
 
   channel.bind("new_request_posted", function(data) {
-    $('#active-requests').prepend('<li>' + data.content + '</li>');
+    $('.requests').prepend('<li>' + data.content + '</li>');
   });
 </script>
 
+<%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js" %>
+
+<script id="request-template" type="text/x-handlebars-template">
+<div class='row transaction'>
+  <div class='small-4 text-center column'>
+    <img class="profpic" src="{{src}}" alt="Photo" width="80" height="80">
+  </div>
+  <div class='small-8 text-center column'>
+    <a href="{{requester_link}}">{{requester_first_name}}</a> {{request_text}} {{time}}
+  </div>
+</div>
+</script>

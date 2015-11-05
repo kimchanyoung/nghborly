@@ -1,4 +1,8 @@
 class Transaction < ActiveRecord::Base
+  include ActionView::Helpers::DateHelper
+
+  after_create :trigger_message
+
   belongs_to :request
 
   validates :transaction_type, inclusion: { in: ['request', 'response', 'fulfillment'] }
@@ -17,5 +21,45 @@ class Transaction < ActiveRecord::Base
 
   def pretty_date
     time_ago_in_words(created_at)
+  end
+
+  def trigger_message
+    request_obj = self.request
+
+    case self.transaction_type
+    when "request"
+      trigger_request_message(request_obj)
+    when "response"
+      trigger_response_message(request_obj)
+    when "fulfillment"
+      trigger_fulfillment_message(request_obj)
+    end
+  end
+
+  def trigger_request_message(request)
+    Pusher["presence-#{request.group.id}"].trigger('new_transaction', {
+      type: self.transaction_type,
+      src: request.requester.picture,
+      request_text: request_text,
+      requester_link: "/users/#{request.requester.id}",
+      requester_first_name: request.requester.first_name,
+      time: pretty_date
+    })
+  end
+
+  def trigger_response_message(request)
+  end
+
+  def trigger_fulfillment_message(request)
+  end
+
+  def request_text
+    ['cried out for help',
+     'sent an SOS',
+     'made a request',
+     'shouted for aid',
+     'sent out a smoke signal',
+     'pinged neighbors',
+     'lit the beacons'].sample
   end
 end
