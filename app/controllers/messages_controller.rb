@@ -32,7 +32,7 @@ class MessagesController < UserActionsController
  end
 
   def validate_request_status
-    unless (@request.responder && !@request.is_fulfilled)
+    unless @request.active?
       flash[:error] = "This request is no longer active."
       redirect_to request_messages_path(@request)
     end
