@@ -32,6 +32,10 @@ class Request < ActiveRecord::Base
     time_ago_in_words(created_at)
   end
 
+  def can_be_voted_on_by(user)
+    is_party_to?(user) && Vote.find_by(candidate_id: user.id, request_id: id) == nil
+  end
+
   private
 
   def defaultly_unfulfilled
