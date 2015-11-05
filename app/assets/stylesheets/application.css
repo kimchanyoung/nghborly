@@ -57,8 +57,8 @@
 
 .ping {
   background-color: white;
-  color: #87abfd;
-  border: 2px solid #87abfd;
+  color: #87acfd;
+  border: 2px solid #87acfd;
 }
 
 .request-form {
@@ -195,12 +195,12 @@
 
 .user-title {
   font-size: 2em;
-  color: #87abfd;
+  color: #87acfd;
 }
 
 .sub-userheader {
   font-size: 1em;
-  color: #87abfd;
+  color: #87acfd;
   margin: 1em;
 }
 
