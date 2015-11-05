@@ -1,4 +1,6 @@
 class VotesController < UserActionsController
+  before_action :set_request, :verify_association
+
   def create
     @vote = Vote.new(vote_params)
     if @vote.save
@@ -22,12 +24,19 @@ class VotesController < UserActionsController
 
   private
 
-  def vote_params
+  def set_request
     @request = Request.find_by(id: params[:request_id])
+  end
+
+  def verify_association
+    unless @request.is_party_to?(current_user)
+      redirect_to request_path(@request)
+    end
+  end
+
+  def vote_params
     @candidate = other_party_of(@request)
-
     known_attrs = { request_id: @request.id, candidate_id: @candidate.id }
-
     params.require(:vote).permit(:value).merge(known_attrs)
   end
 end
