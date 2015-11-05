@@ -179,7 +179,7 @@
 .neighborhood-header {
   padding-top: 3em;
   padding-bottom: 3em;
-  border: 1px solid black;
+  border: 1px solid white;
   background-image: url('apt-small.png');
   background-repeat: repeat-x;
   background-size: contain;
