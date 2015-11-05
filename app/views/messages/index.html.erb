@@ -23,7 +23,7 @@
       <% @messages.each do |message| %>
         <div class='row'>
           <div class='small-2 columns'>
-            <%= image_tag(message.sender.picture) %>
+            <%= image_tag(message.sender.picture, class: 'msg-img') %>
           </div>
           <div class='small-9 columns msg' data-id="<%= message.id %>">
             <%= message.content %>

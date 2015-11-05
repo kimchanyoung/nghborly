@@ -84,6 +84,10 @@
   border-radius: 50px;
 }
 
+.msg-img {
+  margin-left: .5em;
+}
+
 .profpic {
   border-radius: 50%
 }
