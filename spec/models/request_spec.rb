@@ -30,16 +30,17 @@ describe Request do
     end
 
     context "has a responder" do
-      it "should be active if it is not fulfilled" do
-        expect(FactoryGirl.create(:request_with_neighbor).active?).to be true
-      end
-
-      it "should not be active it is fulfilled" do
-        # NOTE: trait feature in FactoryGirl not working for boolean.
+      let(:request) do
         request = FactoryGirl.create(:request_with_neighbor)
         request.is_fulfilled = true
-        request.save
+        request
+      end
 
+      it "should be not be active if it is fulfilled" do
+        expect(request.active?).to be false
+      end
+
+      it "should not be active it was created more than 45 minutes ago" do
         expect(request.active?).to be false
       end
     end
