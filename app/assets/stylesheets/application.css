@@ -98,6 +98,7 @@ footer {
   padding-top: 1em;
   font-weight: 300;
   max-height: 20px;
+  width: auto;
 }
 
 .top-bar.expanded {
@@ -170,6 +171,7 @@ footer {
   font-weight: 300;
   text-align: center;
   list-style: none;
+  width: auto;
 }
 
 
