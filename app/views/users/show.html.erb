@@ -17,17 +17,6 @@
 </div>
 </div>
 
-<% if @user == current_user %>
-  <div class='row'>
-    <div class='small-12 columns sub-userheader'>
-      <strong>My Requests</strong>
-    </div>
-    <% @user.requests %>
-
-    <% %>
-  </div>
-<% end %>
-
 <% @transactions.each do |transaction| %>
 <div class="row">
 <div class="small-12 small-centered text-center columns">
