@@ -12,7 +12,7 @@ class Transaction < ActiveRecord::Base
   end
 
   def self.sort_by_user(user)
-    Transaction.joins(:request).where(requests: {requester_id: user.id})
+    Transaction.joins(:request).where('requests.requester_id = ? OR requests.responder_id = ?', user.id, user.id)
   end
 
   def self.sort_by_active
