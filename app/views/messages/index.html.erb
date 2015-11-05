@@ -21,8 +21,13 @@
   <div class='small-12 columns'>
     <ul id="messages">
       <% @messages.each do |message| %>
-        <div class='msg'>
-          <li data-id="<%= message.id %>"><%= message.content %></li>
+        <div class='row'>
+          <div class='small-2 columns'>
+            <%= image_tag(message.sender.picture) %>
+          </div>
+          <div class='small-10 columns msg data-id="<%= message.id %>"'>
+            <%= message.content %>
+          </div>
         </div>
       <% end %>
     </ul>
@@ -64,6 +69,6 @@
   var channel = pusher.subscribe('private-<%= @request.id %>');
 
   channel.bind('new_message', function(data) {
-    $('#messages').append('<div class="msg"><li>' + data.content + '</li></div>');
+    $('#messages').append('<div class="row"><div class="small-2 columns"><img src=' + data.senderPicture + ')></div><div class="small-10 columns msg">' + data.content + '</div>');
   });
 </script>

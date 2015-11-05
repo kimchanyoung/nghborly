@@ -78,9 +78,9 @@
 .msg {
   display:block;
   list-style: none;
-  padding: .5em;
-  margin: .5em;
-  border: 2px solid black;
+  padding-bottom: .5em;
+  margin-bottom: .5em;
+  border: 1px solid black;
   border-radius: 50px;
 }
 
@@ -239,4 +239,5 @@
 
 .msg-title {
   margin-bottom: 1em;
+  padding: .1em;
 }

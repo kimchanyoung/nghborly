@@ -36,7 +36,8 @@ class Request < ActiveRecord::Base
   end
 
   def can_be_voted_on_by(user)
-    is_party_to?(user) && Vote.find_by(candidate_id: user.id, request_id: id) == nil && is_fulfilled
+    user == requester ? other_guy = responder : other_guy = requester
+    is_party_to?(user) && Vote.find_by(candidate_id: other_guy.id, request_id: id) == nil && is_fulfilled
   end
 
   def has_neighbor?

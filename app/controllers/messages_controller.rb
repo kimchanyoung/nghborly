@@ -45,6 +45,6 @@ class MessagesController < UserActionsController
   end
 
   def trigger_message_event(message)
-    Pusher["private-#{@request.id}"].trigger('new_message', {content: message.content})
+    Pusher["private-#{@request.id}"].trigger('new_message', {content: message.content, senderPicture: @message.sender.picture })
   end
 end
