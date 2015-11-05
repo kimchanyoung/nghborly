@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get '/active', :to => 'requests#active', :as => :active
   get '/river', :to => 'transactions#river', :as => :river
-  get '/history', :to => 'transactions#history', :as => :history
+  get '/history', :to => 'requests#history', :as => :history
 
   resources :users, only: [:show]
 

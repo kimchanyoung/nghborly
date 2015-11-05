@@ -18,6 +18,8 @@
           <%= button_to "Cancel Request", request, class: 'button alert tiny round request-btn', method: 'delete' %>
         <% elsif request.responder == nil && current_user != request.requester %>
         <%= button_to 'Be a neighbor!', request, class: 'button success tiny round request-btn', method: 'patch' %>
+        <% else %>
+        <%= button_to 'View', request_path(request), class: 'button info tiny round request-btn', method: 'get' %>
         <% end %>
       </div>
     </div>

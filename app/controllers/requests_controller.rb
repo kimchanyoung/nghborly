@@ -91,6 +91,20 @@ class RequestsController < UserActionsController
     end
   end
 
+  def history
+    # if @request.responder
+      @requests = Request.order('created_at DESC').limit(25).where('responder_id = ? OR requester_id = ?', current_user.id, current_user.id).where('is_fulfilled = ?', false)
+    # else
+    #   @requests = Request.order('created_at DESC').limit(25).where('responder_id = ? OR requester_id = ?', current_user.id, current_user.id).where('is_fulfilled = ?', false)
+    #   @requests = Request.order('created_at DESC').limit(25).select{ |req| (req.responder == current_user || req.requester == current_user) && !req.is_fulfilled }
+    # end
+    if request.xhr?
+      render 'requests/index.html.erb', layout: false
+    else
+      render 'requests/index.html.erb'
+    end
+  end
+
   private
 
 
