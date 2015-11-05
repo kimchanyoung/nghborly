@@ -77,9 +77,8 @@
 
 
 .msg {
-  display:block;
-  list-style: none;
-  padding-bottom: .5em;
+  padding-top: .35em;
+  padding-bottom: .35em;
   margin-bottom: .5em;
   border: 1px solid black;
   border-radius: 50px;
