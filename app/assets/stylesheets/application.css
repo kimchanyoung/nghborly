@@ -65,7 +65,7 @@
   margin: 1em;
 }
 
-footer {
+.msg-input {
     position: fixed;
     bottom: 0;
     height: 60px;

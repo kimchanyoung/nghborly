@@ -15,7 +15,7 @@
 </div>
 
 <% if @request.responder && !@request.is_fulfilled %>
-  <footer>
+  <footer class='msg-input'>
     <div id="message-input fixed">
       <%= form_for [@request, @message] do |f| %>
         <div class='row'>
