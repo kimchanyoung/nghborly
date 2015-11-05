@@ -1,5 +1,5 @@
-<div class="row transactions">
-  <div class="small-12 columns">
+<div class="row">
+  <div class="small-12 columns transactions">
     <% @transactions.each do |transaction| %>
         <%= render 'transaction.html.erb', transaction: transaction %>
     <% end %>
