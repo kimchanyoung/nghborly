@@ -75,7 +75,7 @@ class RequestsController < UserActionsController
 
 
   def check_rate_limit
-    if current_user.requests_in_last_24_hours > 5
+    if current_user.requests_in_last_24_hours > 30
       flash[:alert] = "You've exceeded your quota. You're neighbors need some rest!"
       redirect_to root_path
     end
