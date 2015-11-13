@@ -43,7 +43,7 @@
     <% elsif request.responder == nil && current_user != request.requester %>
       <div class='row'>
         <div class='small-8 text-center small-centered columns'>
-          <%= button_to 'Be a neighbor!', request_respond, class: 'button success tiny round request-btn', method: 'patch' %>
+          <%= button_to 'Be a neighbor!', request, class: 'button success tiny round request-btn', method: 'patch' %>
         </div>
       </div>
     <% elsif request.responder != nil %>
@@ -55,7 +55,7 @@
       <% if current_user == request.requester %>
         <div class='row'>
           <div class='small-8 text-center small-centered columns'>
-            <%= button_to 'Request fulfilled!', request_fulfill, class: 'button tiny round request-btn', method: 'patch' %>
+            <%= button_to 'Request fulfilled!', request, class: 'button tiny round request-btn', method: 'patch' %>
           </div>
         </div>
       <% end %>
