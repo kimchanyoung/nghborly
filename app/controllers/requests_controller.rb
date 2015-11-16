@@ -37,28 +37,36 @@ class RequestsController < UserActionsController
     @request = Request.find_by(id: params[:id])
     if @request.responder == nil && @request.requester != current_user
       @request.responder = current_user if @request.requester != current_user
+      respond
+    elsif @request.requester == current_user
+      fulfill
+    end
+  end
+
+  def respond
+    if @request.save
+      NewResponderMailer.notify(@request, @request.requester).deliver_now
+      Transaction.create(request_id: @request.id, transaction_type: 'response')
+      flash[:success] = "Thanks for being a good neighbor!"
+      redirect_to request_path(@request)
+    else
+      flash[:alert] = @request.errors.full_messages.join(', ')
+      redirect_to root_path
+    end
+  end
+
+  def fulfill
+    if current_user == @request.requester
+      @request.is_fulfilled = true
       if @request.save
-        NewResponderMailer.notify(@request, @request.requester).deliver_now
-        Transaction.create(request_id: @request.id, transaction_type: 'response')
-        flash[:success] = "Thanks for being a good neighbor!"
+        Transaction.create(request_id: @request.id, transaction_type: 'fulfillment')
         redirect_to request_path(@request)
       else
-        flash[:alert] = @request.errors.full_messages.join(', ')
-        redirect_to root_path
+        redirect_to requests_path
       end
-    elsif @request.requester == current_user
-      if current_user == @request.requester
-        @request.is_fulfilled = true
-        if @request.save
-          Transaction.create(request_id: @request.id, transaction_type: 'fulfillment')
-          redirect_to request_path(@request)
-        else
-          redirect_to requests_path
-        end
-      else
-        flash[:alert] = "You are not a party in this transaction!"
-        redirect_to root_path
-      end
+    else
+      flash[:alert] = "You are not a party in this transaction!"
+      redirect_to root_path
     end
   end
 
@@ -92,12 +100,7 @@ class RequestsController < UserActionsController
   end
 
   def history
-    # if @request.responder
-      @requests = Request.order('created_at DESC').limit(25).where('responder_id = ? OR requester_id = ?', current_user.id, current_user.id).where('is_fulfilled = ?', false)
-    # else
-    #   @requests = Request.order('created_at DESC').limit(25).where('responder_id = ? OR requester_id = ?', current_user.id, current_user.id).where('is_fulfilled = ?', false)
-    #   @requests = Request.order('created_at DESC').limit(25).select{ |req| (req.responder == current_user || req.requester == current_user) && !req.is_fulfilled }
-    # end
+    @requests = Request.order('created_at DESC').limit(25).where('responder_id = ? OR requester_id = ?', current_user.id, current_user.id).where('is_fulfilled = ?', false)
     if request.xhr?
       render 'requests/index.html.erb', layout: false
     else
@@ -107,6 +110,9 @@ class RequestsController < UserActionsController
 
   private
 
+  def get_request
+    request = Request.find_by(id: params[:id])
+  end
 
   def request_attributes
     known_attrs = {requester_id: current_user.id, group_id: current_user.group_id}
