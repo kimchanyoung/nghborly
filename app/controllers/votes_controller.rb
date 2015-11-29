@@ -8,7 +8,7 @@ class VotesController < UserActionsController
       flash[:success] = "Thank you for your feedback!"
       redirect_to root_path
     else
-      flash.now[:error] = "Your vote has failed"
+      flash.now[:alert] = "Your vote has failed"
       render 'requests/show.html.erb'
     end
 
