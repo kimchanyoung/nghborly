@@ -14,7 +14,7 @@ class MessagesController < UserActionsController
       trigger_message_event(@message)
       redirect_to request_messages_path(@request, anchor: 'bottom')
     else
-      flash[:now] = @message.errors.full_messages.join(', ')
+      flash[:alert] = @message.errors.full_messages.join(', ')
       redirect_to request_messages_path(@request, anchor: 'bottom')
     end
   end
@@ -33,7 +33,7 @@ class MessagesController < UserActionsController
 
   def validate_request_status
     unless (@request.responder && !@request.is_fulfilled)
-      flash[:error] = "This request is no longer active."
+      flash[:alert] = "This request is no longer active."
       redirect_to request_messages_path(@request)
     end
   end

@@ -61,7 +61,7 @@ describe MessagesController do
       context "invalid message" do
         it "should set a flash error" do
           post :create, { request_id: @request_obj.id, message: { content: '' } }
-          expect(flash[:now]).not_to be_nil
+          expect(flash[:alert]).not_to be_nil
         end
 
         it "should set a flash error" do
@@ -104,7 +104,7 @@ describe MessagesController do
     describe "POST #create" do
       it "should set a flash error" do
         post :create, request_id: @request_obj.id
-        expect(flash[:error]).to be_present
+        expect(flash[:alert]).to be_present
       end
 
       it "should redirect to the request messages" do
